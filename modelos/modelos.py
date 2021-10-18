@@ -7,11 +7,11 @@ db = SQLAlchemy()
 
 
     
-class Usuario(db.Model):
+class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(50))
-    contrasena = db.Column(db.String(50))
-
+    username = db.Column(db.String(50))
+    password = db.Column(db.String(100))
+    email = db.Column(db.String(50))
 
 
 class EnumADiccionario(fields.Field):
@@ -24,7 +24,7 @@ class EnumADiccionario(fields.Field):
 
 class UsuarioSchema(SQLAlchemyAutoSchema):
     class Meta:
-         model = Usuario
+         model = User
          include_relationships = True
          load_instance = True
 

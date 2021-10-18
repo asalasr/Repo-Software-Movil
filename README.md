@@ -6,4 +6,5 @@ Este es el Repo que usaremos para la clase de Ingenieria de SW para apps moviles
 rama de desarrollo principal
 ## main
 rama de despliegue
-
+## release
+rama de versiones

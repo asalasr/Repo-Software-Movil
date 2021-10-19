@@ -8,3 +8,6 @@ rama de desarrollo principal
 rama de despliegue
 ## release
 rama de versiones
+
+## feature/tarea
+tareas desarrolladas

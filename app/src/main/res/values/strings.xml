@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Vinilos</string>
+    <string name="rol_collector">COLECCIONISTA</string>
+    <string name="rol_visitor">VISITANTE</string>
+</resources>

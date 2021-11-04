@@ -24,14 +24,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/rol_collector" />
+        android:text="@string/rol_collector"
+        android:onClick="onCLickSelectCollectorRol"
+        />
 
     <Button
         android:id="@+id/button_visitor_rol"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/rol_visitor"/>
+        android:text="@string/rol_visitor"
+        android:onClick="onClickSelectVisitorRol"
+        />
     </LinearLayout>
 
 

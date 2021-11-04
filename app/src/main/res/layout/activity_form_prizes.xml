@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormPrizes">
-
+    tools:context=".ui.FormPrizes">
+    <Button
+        android:id="@+id/button_create_prize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/Create"
+        android:onClick="onCLickCreatePrize"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

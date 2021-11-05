@@ -2,32 +2,22 @@ package com.example.vinilos.repositories
 
 import android.app.Application
 import android.util.Log
-import com.android.volley.Response
+import com.android.volley.VolleyError
 import com.example.vinilos.models.Prize
-import org.json.JSONObject
-import com.example.vinilos.network.VolleyBroker
+import com.example.vinilos.network.NetworkServiceAdapter
 
 class PrizeRepository (val application: Application){
-    lateinit var volleyBroker: VolleyBroker
-    fun postPrize(prize:Prize){
 
-        val postParams = mapOf<String, Any>(
-            "organization" to prize.organitation,
-            "name" to prize.name,
-            "description" to prize.description
+
+    fun postPrize(prize:Prize, callback: (Boolean)->Unit, onError: (VolleyError)->Unit) {
+        //Determinar la fuente de datos que se va a utilizar. Si es necesario consultar la red, ejecutar el siguiente código
+        Log.i("PrizeRepository" ,"aqui llego")
+        NetworkServiceAdapter.getInstance(application).postPrize(prize,{
+            //Guardar los coleccionistas de la variable it en un almacén de datos local para uso futuro
+            callback(it)
+        },
+            onError
         )
-
-        volleyBroker = VolleyBroker(application.applicationContext)
-        volleyBroker.instance.add(VolleyBroker.postRequest("prizes", JSONObject(postParams),
-            Response.Listener<JSONObject> { response ->
-                // Display the first 500 characters of the response string.
-                Log.i("PrizeRepository" ,"Response is: ${response.toString()}")
-            },
-            Response.ErrorListener {
-                Log.d("PrizeRepository", "error:"+it.toString()+" "+prize.organitation+" "+prize.description+" "+prize.name)
-
-            }
-        ))
     }
 
 }

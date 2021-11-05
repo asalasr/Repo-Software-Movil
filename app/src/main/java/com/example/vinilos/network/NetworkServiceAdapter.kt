@@ -1,4 +1,4 @@
-package com.example.getonetutorial.network
+package com.example.vinilos.network
 
 import android.content.Context
 import android.util.Log
@@ -9,10 +9,7 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.getonetutorial.models.Album
-import com.example.getonetutorial.models.Comments
-import com.example.getonetutorial.models.Performers
-import com.example.getonetutorial.models.Tracks
+import com.example.vinilos.models.Prize
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -33,7 +30,7 @@ class NetworkServiceAdapter constructor(context: Context) {
     }
 
 
-    fun getOneAlbum(albumId:Int, onComplete:(resp: Album)->Unit, onError: (error:VolleyError)->Unit) {
+    /*fun getOneAlbum(albumId:Int, onComplete:(resp: Album)->Unit, onError: (error:VolleyError)->Unit) {
         requestQueue.add(getRequest("albums/$albumId",
             Response.Listener<String> { response ->
                 val resp = JSONObject(response)
@@ -48,6 +45,27 @@ class NetworkServiceAdapter constructor(context: Context) {
                     description = item.getString("description"),
                     genre = item.getString("genre"),
                     recordLabel = item.getString("recordLabel")))
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }*/
+
+    fun postPrize(prize: Prize, onComplete:(resp: Boolean)->Unit, onError: (error:VolleyError)->Unit) {
+        val postParams = mapOf<String, Any>(
+            "organization" to prize.organitation,
+            "name" to prize.name,
+            "description" to prize.description
+        )
+
+        requestQueue.add(postRequest("prizes",JSONObject(postParams),
+            Response.Listener<JSONObject> { response ->
+
+                var item:JSONObject? = null
+
+                item = response
+                Log.d("Response", item.toString())
+                onComplete(true)
             },
             Response.ErrorListener {
                 onError(it)

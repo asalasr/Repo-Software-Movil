@@ -5,6 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.FormPrizes">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
     <Button
         android:id="@+id/button_create_prize"
         android:layout_width="match_parent"
@@ -13,4 +18,29 @@
         android:text="@string/Create"
         android:onClick="onCLickCreatePrize"
         />
+    <TextView
+        android:id="@+id/textviewTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="el texview"
+        android:layout_margin="36dp"
+
+        />
+        <TextView
+            android:id="@+id/textviewLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="el texview"
+            android:layout_margin="36dp"
+
+            />
+    <TextView
+        android:id="@+id/textviewTestError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="el texview"
+        android:layout_margin="36dp"
+
+        />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

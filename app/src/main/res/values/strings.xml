@@ -8,6 +8,7 @@
     <string name="artists">ARTISTAS</string>
     <string name="MainMenu">PRINCIPAL</string>
     <string name="CreatePrizes">CREAR PREMIO</string>
+    <string name="CreateAlbums">CREAR ALBUM</string>
     <string name="Create">CREAR</string>
     <string name="Cancel">CANCELAR</string>
     <string name="Create_lbl_Premio">Crear Premio</string>

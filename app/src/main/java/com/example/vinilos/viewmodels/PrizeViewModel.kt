@@ -35,7 +35,6 @@ class PrizeViewModel (application: Application) :  AndroidViewModel(application)
     public fun startPostCreate( organitation:String,
                                 name:String,
                                 description:String
-
     ) {
         val prize = Prize(0,organitation, name, description)
         Log.i("PrizeViewModel", "Se recibe: $organitation, $name y $description")

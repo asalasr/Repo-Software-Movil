@@ -25,4 +25,12 @@ class MainMenu : AppCompatActivity() {
         val i = Intent(this, PrizesMenus::class.java)
         startActivity(i)
     }
+
+    fun onClickMenuAlbums(view: View) {
+        // Do something in response to button click
+
+        Log.i("MainMenu", "Click Button Menu to albums")
+        val i = Intent(this, ListAlbums::class.java)
+        startActivity(i)
+    }
 }

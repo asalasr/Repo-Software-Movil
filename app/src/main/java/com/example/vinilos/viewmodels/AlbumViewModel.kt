@@ -1,6 +1,7 @@
 package com.example.vinilos.viewmodels
 
 import android.app.Application
+import android.text.style.BulletSpan
 import android.util.Log
 import com.example.vinilos.models.Album
 import com.example.vinilos.models.Prize
@@ -16,7 +17,8 @@ class AlbumViewModel (val aplication: Application) {
                                description: String,
                                genre: String,
                                recordLabel: String,
-                               cbView: (resp:Int) -> Unit
+                               cbViewSuccess: (resp:Boolean) -> Unit,
+                               cbViewError: () -> Unit
                                ) {
         val album = Album(name, cover, releaseDate, description, genre, recordLabel)
         Log.i("AlbumViewModel", "name: $name")
@@ -28,10 +30,13 @@ class AlbumViewModel (val aplication: Application) {
 
 
         albumRepositoryObject = AlbumRepository(aplication)
-        albumRepositoryObject.postAlbum(album) {
-            Log.i("AlbumViewModel", "Return from Service: $it")
-            cbView(it)
-        }
+        albumRepositoryObject.postAlbum(album,{
+            Log.i("AlbumViewModel", "Return from Repository: $it")
+            cbViewSuccess(it)
+        },{
+            Log.i("AlbumViewModel", "Error at Repository")
+            cbViewError()
+        })
     }
 
 }

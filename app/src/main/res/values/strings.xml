@@ -8,7 +8,16 @@
     <string name="artists">ARTISTAS</string>
     <string name="MainMenu">PRINCIPAL</string>
     <string name="CreatePrizes">CREAR PREMIO</string>
+    <string name="CreateAlbums">CREAR ALBUM</string>
     <string name="Create">CREAR</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Cancel">CANCELAR</string>
+    <string name="Create_lbl_Premio">Crear Premio</string>
+    <string name="prize_lbl_organization">Organización</string>
+    <string name="prize_lbl_nombre">Nombre del premio</string>
+    <string name="prize_lbl_descripcion">Descripción del premio</string>
+    <string name="campo_obligatorio">Campo obligatorio</string>
+    <string name="almacenadoOkPremio">El Premio se ha almacenado con exito</string>
+    <string name="almacenadoError">Error, Intente de nuevo</string>
+    <string name="dialogTitle">Notificación</string>
 </resources>

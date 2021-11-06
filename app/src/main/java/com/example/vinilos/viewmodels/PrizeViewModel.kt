@@ -16,6 +16,8 @@ class PrizeViewModel (application: Application) :  AndroidViewModel(application)
 
     private var _Loanding = MutableLiveData<Boolean>(false)
 
+    private val _prizes = MutableLiveData<List<Prize>>()
+
     //LIVE DATA
     val isNetworkErrorShown: LiveData<Boolean>
         get() = _isNetworkErrorShown
@@ -26,12 +28,20 @@ class PrizeViewModel (application: Application) :  AndroidViewModel(application)
     val loanding: LiveData<Boolean>
         get() = _Loanding
 
+    val prizes: LiveData<List<Prize>>
+        get() = _prizes
 
     //Repository
     private var prizeRepositoryObject = PrizeRepository(application)
 
 
     //Funciones
+
+    init {
+        refreshDataFromNetwork()
+    }
+
+    //post
     public fun startPostCreate( organitation:String,
                                 name:String,
                                 description:String,
@@ -55,6 +65,23 @@ class PrizeViewModel (application: Application) :  AndroidViewModel(application)
             cbViewError()
         })
     }
+    //onNetwork
+    fun onNetworkErrorShown() {
+        _isNetworkErrorShown.value = true
+    }
+
+    //get all
+    private fun refreshDataFromNetwork() {
+        prizeRepositoryObject.refreshData({
+            _prizes.postValue(it)
+            _eventNetworkError.value = false
+            _isNetworkErrorShown.value = false
+        },{
+            _eventNetworkError.value = true
+        })
+    }
+
+
     //CLASS FACTORY
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {

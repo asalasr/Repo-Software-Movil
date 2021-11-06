@@ -5,42 +5,115 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.FormPrizes">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-    <Button
-        android:id="@+id/button_create_prize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/Create"
-        android:onClick="onCLickCreatePrize"
-        />
-    <TextView
-        android:id="@+id/textviewTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="el texview"
-        android:layout_margin="36dp"
 
-        />
+    <LinearLayout
+        android:layout_width="414dp"
+        android:layout_height="550dp"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/Create_lbl_Premio"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewOrganizacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prize_lbl_organization"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextTextOrganizacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/textViewNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prize_lbl_nombre"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextTextNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/textViewDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prize_lbl_descripcion"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextTextDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" />
+
+        <Button
+            android:id="@+id/button_create_prize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="30dp"
+            android:onClick="onCLickCreatePrize"
+            android:text="@string/Create" />
+
+        <Button
+            android:id="@+id/button_cancel_prize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="30"
+            android:onClick="onCLickCancelPrize"
+            android:text="@string/Cancel" />
+
+        <TextView
+            android:id="@+id/textviewTest"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_margin="36dp"
+            android:text="el texview"
+            android:textAlignment="viewStart" />
+
         <TextView
             android:id="@+id/textviewLoad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="el texview"
             android:layout_margin="36dp"
+            android:text="el texview"
 
             />
-    <TextView
-        android:id="@+id/textviewTestError"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="el texview"
-        android:layout_margin="36dp"
 
-        />
+        <TextView
+            android:id="@+id/textviewTestError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="36dp"
+            android:text="el texview"
+
+            />
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

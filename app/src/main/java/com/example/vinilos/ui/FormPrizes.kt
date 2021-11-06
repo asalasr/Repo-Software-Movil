@@ -58,4 +58,10 @@ class FormPrizes : AppCompatActivity() {
         prizeViewModelClass.startPostCreate("organitation otro","name otro","description otro")
 
     }
+
+    fun onCLickCancelPrize(view: View) {
+
+        Log.i("FormPrizes", "Click Button Cancelar")
+
+    }
 }

@@ -16,5 +16,7 @@
     <string name="prize_lbl_nombre">Nombre del premio</string>
     <string name="prize_lbl_descripcion">Descripción del premio</string>
     <string name="campo_obligatorio">Campo obligatorio</string>
-    <string name="almacenadoOk">Se guardo correctamente</string>
+    <string name="almacenadoOkPremio">El Premio se ha almacenado con exito</string>
+    <string name="almacenadoError">Error, Intente de nuevo</string>
+    <string name="dialogTitle">Notificación</string>
 </resources>

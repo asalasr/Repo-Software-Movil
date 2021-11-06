@@ -88,32 +88,6 @@
             android:onClick="onCLickCancelPrize"
             android:text="@string/Cancel" />
 
-        <TextView
-            android:id="@+id/textviewTest"
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
-            android:layout_margin="36dp"
-            android:text="el texview"
-            android:textAlignment="viewStart" />
-
-        <TextView
-            android:id="@+id/textviewLoad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="36dp"
-            android:text="el texview"
-
-            />
-
-        <TextView
-            android:id="@+id/textviewTestError"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="36dp"
-            android:text="el texview"
-
-            />
-
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

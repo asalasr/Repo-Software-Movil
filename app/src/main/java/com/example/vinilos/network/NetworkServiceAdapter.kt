@@ -9,6 +9,7 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.vinilos.models.Album
 import com.example.vinilos.models.Prize
 import org.json.JSONArray
 import org.json.JSONObject
@@ -59,6 +60,30 @@ class NetworkServiceAdapter constructor(context: Context) {
         )
 
         requestQueue.add(postRequest("prizes",JSONObject(postParams),
+            Response.Listener<JSONObject> { response ->
+
+                var item:JSONObject? = null
+
+                item = response
+                Log.d("Response", item.toString())
+                onComplete(true)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
+    fun postAlbum(album: Album, onComplete:(resp: Boolean)->Unit, onError: (error:VolleyError)->Unit) {
+        val postParams = mapOf<String, Any>(
+            "name" to album.name,
+            "cover" to album.cover,
+            "releaseDate" to album.releaseDate,
+            "description" to album.description,
+            "genre" to album.genre,
+            "recordLabel" to album.recordLabel
+        )
+
+        requestQueue.add(postRequest("albums",JSONObject(postParams),
             Response.Listener<JSONObject> { response ->
 
                 var item:JSONObject? = null

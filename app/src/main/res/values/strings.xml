@@ -2,4 +2,13 @@
     <string name="app_name">Vinilos</string>
     <string name="rol_collector">COLECCIONISTA</string>
     <string name="rol_visitor">VISITANTE</string>
+    <string name="collectors">COLECCIONISTAS</string>
+    <string name="prizes">PREMIOS</string>
+    <string name="albums">ALBUMES</string>
+    <string name="artists">ARTISTAS</string>
+    <string name="MainMenu">PRINCIPAL</string>
+    <string name="CreatePrizes">CREAR PREMIO</string>
+    <string name="Create">CREAR</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

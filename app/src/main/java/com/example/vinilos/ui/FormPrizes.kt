@@ -1,6 +1,7 @@
 package com.example.vinilos.ui
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -94,7 +95,10 @@ class FormPrizes : AppCompatActivity() {
 
     fun onCLickCancelPrize(view: View) {
 
-        Log.i("FormPrizes", "Click Button Cancelar")
+        Log.i("PrizesMenus", "Click Button Add prize")
+        val i = Intent(this, PrizesMenus::class.java)
+        startActivity(i)
 
     }
+
 }

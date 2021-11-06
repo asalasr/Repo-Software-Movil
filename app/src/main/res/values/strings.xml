@@ -9,4 +9,9 @@
     <string name="MainMenu">PRINCIPAL</string>
     <string name="CreatePrizes">CREAR PREMIO</string>
     <string name="Create">CREAR</string>
+    <string name="Cancel">CANCELAR</string>
+    <string name="Create_lbl_Premio">Crear Premio</string>
+    <string name="prize_lbl_organization">Organización</string>
+    <string name="prize_lbl_nombre">Nombre del premio</string>
+    <string name="prize_lbl_descripcion">Descripción del premio</string>
 </resources>

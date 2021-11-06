@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
 import com.example.vinilos.databinding.PrizeItemBinding
@@ -32,10 +33,10 @@ class PrizeAdapter : RecyclerView.Adapter<PrizeAdapter.PrizeViewHolder>(){
             it.prize = prizes[position]
         }
         holder.viewDataBinding.root.setOnClickListener {
-           /* val action = PrizeFragmentDirections.actionAlbumFragmentToCommentFragment(prizes[position].prizeId)
+           // val action = PrizeFragmentDirections.actionAlbumFragmentToCommentFragment(prizes[position].prizeId)
             // Navigate using that action
-            holder.viewDataBinding.root.findNavController().navigate(action)*/
-            Log.i("Clic en un premio","se dio clic en un premio")
+          //  holder.viewDataBinding.root.findNavController().navigate(action)
+            Log.i("Clic en un premio","se dio clic en un premio"+prizes[position].name)
         }
     }
 
@@ -48,7 +49,7 @@ class PrizeAdapter : RecyclerView.Adapter<PrizeAdapter.PrizeViewHolder>(){
         RecyclerView.ViewHolder(viewDataBinding.root) {
         companion object {
             @LayoutRes
-            val LAYOUT = R.layout.fragment_prize
+            val LAYOUT = R.layout.prize_item
         }
     }
 

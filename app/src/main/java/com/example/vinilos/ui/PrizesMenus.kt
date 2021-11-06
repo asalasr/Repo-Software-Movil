@@ -10,14 +10,14 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.vinilos.R
 import com.example.vinilos.databinding.ActivityMainBinding
+import com.example.vinilos.databinding.ActivityPrizesMenusBinding
 
 class PrizesMenus : AppCompatActivity() {
 
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_prizes_menus)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        val binding = ActivityPrizesMenusBinding.inflate(layoutInflater)
         Log.i("PrizesMenus", "onCreate ok")
         val titleMenu: String = getString(R.string.prizes)
         setTitle(titleMenu);
@@ -27,7 +27,6 @@ class PrizesMenus : AppCompatActivity() {
         // Instantiate the navController using the NavHostFragment
         navController = navHostFragment.navController
         Log.d("act", navController.toString())
-        setSupportActionBar(findViewById(R.id.my_toolbar))
         setupActionBarWithNavController(navController)
 
 

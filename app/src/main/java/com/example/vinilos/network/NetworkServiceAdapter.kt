@@ -74,7 +74,7 @@ class NetworkServiceAdapter constructor(context: Context) {
 
 
     fun getPrizes(onComplete:(resp:List<Prize>)->Unit, onError: (error:VolleyError)->Unit) {
-        requestQueue.add(getRequest("collectors",
+        requestQueue.add(getRequest("prizes",
             Response.Listener<String> { response ->
                 Log.d("tagb", response)
                 val resp = JSONArray(response)

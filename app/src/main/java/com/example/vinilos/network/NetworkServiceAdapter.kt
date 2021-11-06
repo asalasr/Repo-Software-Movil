@@ -72,6 +72,33 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
+
+    fun getPrizes(onComplete:(resp:List<Prize>)->Unit, onError: (error:VolleyError)->Unit) {
+        requestQueue.add(getRequest("collectors",
+            Response.Listener<String> { response ->
+                Log.d("tagb", response)
+                val resp = JSONArray(response)
+                val list = mutableListOf<Prize>()
+                for (i in 0 until resp.length()) {
+                    val item = resp.getJSONObject(i)
+                    list.add(i, Prize(
+                                id = item.getInt("id"),
+                                name = item.getString("name"),
+                                organitation = item.getString("organization"),
+                                description = item.getString("description")
+                        )
+
+                    )
+                }
+                onComplete(list)
+            },
+            Response.ErrorListener {
+                onError(it)
+                Log.d("Error get Prizes", it.message.toString())
+            }))
+    }
+
+
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
     }

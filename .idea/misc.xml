@@ -12,11 +12,8 @@
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/activity_main.xml" value="0.16058763931104356" />
-        <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/activity_main_menu.xml" value="0.1037037037037037" />
-        <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/activity_prizes_menus.xml" value="0.1037037037037037" />
-        <entry key="app/src/main/res/layout/activity_form_prizes.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.24114583333333334" />
-        <entry key="app/src/main/res/layout/activity_prizes_menus.xml" value="0.20989583333333334" />
+        <entry key="app/src/main/res/layout/activity_form_prizes.xml" value="0.23854166666666668" />
+        <entry key="app/src/main/res/layout/activity_prizes_menus.xml" value="0.23854166666666668" />
       </map>
     </option>
   </component>

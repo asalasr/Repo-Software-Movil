@@ -34,7 +34,9 @@ class PrizeViewModel (application: Application) :  AndroidViewModel(application)
     //Funciones
     public fun startPostCreate( organitation:String,
                                 name:String,
-                                description:String
+                                description:String,
+                                cbViewSuccess: (resp:Boolean) -> Unit,
+                                cbViewError: () -> Unit
     ) {
         val prize = Prize(0,organitation, name, description)
         Log.i("PrizeViewModel", "Se recibe: $organitation, $name y $description")
@@ -44,10 +46,13 @@ class PrizeViewModel (application: Application) :  AndroidViewModel(application)
             _Loanding.value = false
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
+            cbViewSuccess(it)
+
         },{
             Log.d("Error", it.toString())
             _eventNetworkError.value = true
             _Loanding.value = false
+            cbViewError()
         })
     }
     //CLASS FACTORY

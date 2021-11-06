@@ -1,14 +1,18 @@
 package com.example.vinilos.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.vinilos.R
 import com.example.vinilos.viewmodels.PrizeViewModel
 import androidx.lifecycle.Observer
+import com.google.android.material.textfield.TextInputEditText
 
 class FormPrizes : AppCompatActivity() {
 
@@ -51,11 +55,40 @@ class FormPrizes : AppCompatActivity() {
 
     }
 
+
+    @SuppressLint("WrongViewCast")
     fun onCLickCreatePrize(view: View) {
 
-        Log.i("FormPrizes", "Click Button Crear")
+        var txtOrganizacion :TextView = findViewById(R.id.editTextTextOrganizacion)
+        val txtNombre : TextView = findViewById(R.id.editTextTextNombre)
+        val txtDescripcion : TextView = findViewById(R.id.editTextTextDescripcion)
 
-        prizeViewModelClass.startPostCreate("organitation otro","name otro","description otro")
+        if (txtOrganizacion.text.toString().trim().isEmpty()){
+            txtOrganizacion.setError(getString(R.string.campo_obligatorio))
+            txtOrganizacion.requestFocus()
+            return
+        }
+        if (txtNombre.text.toString().trim().isEmpty()){
+            txtNombre.setError(getString(R.string.campo_obligatorio))
+            txtNombre.requestFocus()
+            return
+        }
+        if (txtDescripcion.text.toString().trim().isEmpty()){
+            txtDescripcion.setError(getString(R.string.campo_obligatorio))
+            txtDescripcion.requestFocus()
+            return
+        }
+
+        //envia a guardar
+        prizeViewModelClass.startPostCreate( txtOrganizacion.text.toString().trim(),
+            txtNombre.text.toString().trim(),
+            txtDescripcion.text.toString().trim())
+
+        //blanquea los campos
+        txtOrganizacion.text=""
+        txtNombre.text=""
+        txtDescripcion.text=""
+        Toast.makeText(getApplicationContext(),R.string.almacenadoOk,Toast.LENGTH_SHORT).show();
 
     }
 

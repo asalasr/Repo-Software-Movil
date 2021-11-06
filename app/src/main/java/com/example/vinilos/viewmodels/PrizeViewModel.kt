@@ -34,7 +34,9 @@ class PrizeViewModel (application: Application) :  AndroidViewModel(application)
     //Funciones
     public fun startPostCreate( organitation:String,
                                 name:String,
-                                description:String) {
+                                description:String,
+                                cbView:(resp:Int)-> Unit
+    ) {
         val prize = Prize(0,organitation, name, description)
         Log.i("PrizeViewModel", "Se recibe: $organitation, $name y $description")
         _Loanding.value = true

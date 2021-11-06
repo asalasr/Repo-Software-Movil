@@ -14,4 +14,6 @@
     <string name="prize_lbl_organization">Organización</string>
     <string name="prize_lbl_nombre">Nombre del premio</string>
     <string name="prize_lbl_descripcion">Descripción del premio</string>
+    <string name="campo_obligatorio">Campo obligatorio</string>
+    <string name="almacenadoOk">Se guardo correctamente</string>
 </resources>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.FormAlbum">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp">
+        <TextView
+            android:id="@+id/textViewCreateAlbumTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:text="@string/Create_lbl_Album"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="29dp" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="373dp"
+        android:layout_height="17dp"
+        android:text="@string/album_lbl_nombre"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="116dp" />
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="372dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="133dp" />
+
+
+        <TextView
+        android:id="@+id/textViewCover"
+        android:layout_width="373dp"
+        android:layout_height="17dp"
+        android:text="@string/album_lbl_cover"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="184dp" />
+        <EditText
+            android:id="@+id/editTextCover"
+            android:layout_width="372dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            tools:layout_editor_absoluteX="17dp"
+            tools:layout_editor_absoluteY="202dp" />
+
+
+
+
+    <TextView
+        android:id="@+id/textViewReleaseDate"
+        android:layout_width="373dp"
+        android:layout_height="17dp"
+        android:text="@string/album_lbl_release_date"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="261dp" />
+
+    <DatePicker
+        android:id="@+id/datePickerReleaseDate"
+        android:layout_width="372dp"
+        android:layout_height="77dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="278dp" />
+
+
+
+    <TextView
+        android:id="@+id/textViewGenre"
+        android:layout_width="371dp"
+        android:layout_height="20dp"
+        android:text="@string/album_lbl_genre"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="374dp" />
+
+        <Spinner
+            android:id="@+id/spinner_genre"
+            android:layout_width="371dp"
+            android:layout_height="41dp" />
+
+        <TextView
+        android:id="@+id/textViewRecordLabel"
+        android:layout_width="367dp"
+        android:layout_height="21dp"
+        android:text="@string/album_lbl_record_label"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="455dp" />
+        <Spinner
+            android:id="@+id/spinner_record_label"
+            android:layout_width="371dp"
+            android:layout_height="41dp"
+            />
+
+
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="373dp"
+            android:layout_height="17dp"
+            android:text="@string/album_lbl_description"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="15dp"
+            tools:layout_editor_absoluteY="535dp" />
+
+        <EditText
+            android:id="@+id/editTextTextDescription"
+            android:layout_width="371dp"
+            android:layout_height="74dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            tools:layout_editor_absoluteX="15dp"
+            tools:layout_editor_absoluteY="552dp" />
+
+
+
+        <Button
+            android:id="@+id/buttonCreateAlbum"
+            android:layout_width="389dp"
+            android:layout_height="54dp"
+            android:onClick="onCLickCreateAlbum"
+            android:text="@string/CreateAlbums"
+            tools:layout_editor_absoluteX="6dp"
+            tools:layout_editor_absoluteY="616dp" />
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

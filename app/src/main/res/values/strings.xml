@@ -8,7 +8,42 @@
     <string name="artists">ARTISTAS</string>
     <string name="MainMenu">PRINCIPAL</string>
     <string name="CreatePrizes">CREAR PREMIO</string>
+    <string name="CreateAlbums">CREAR ALBUM</string>
     <string name="Create">CREAR</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Cancel">CANCELAR</string>
+    <string name="Create_lbl_Premio">Crear Premio</string>
+    <string name="prize_lbl_organization">Organización</string>
+    <string name="prize_lbl_nombre">Nombre del premio</string>
+    <string name="prize_lbl_descripcion">Descripción del premio</string>
+    <string name="campo_obligatorio">Campo obligatorio</string>
+    <string name="almacenadoOkPremio">El Premio se ha almacenado con exito</string>
+    <string name="almacenadoError">Error, Intente de nuevo</string>
+    <string name="dialogTitle">Notificación</string>
+    <string name="Create_lbl_Album">Crear album</string>
+    <string name="album_lbl_nombre">Nombre</string>
+    <string name="album_lbl_cover">Cover</string>
+    <string name="album_lbl_release_date">Fecha lanzamiento</string>
+    <string name="album_lbl_description">Descripción</string>
+    <string name="album_lbl_genre">Genero</string>
+    <string name="album_lbl_record_label">Disquera</string>
+    <string name="albumCreationSuccess">Álbum creado correctamente</string>
+    <string name="albumCreationFail">Error creando álbum, Intente de nuevo</string>
+    <string name="album_alert_creation_title">Creación álbum</string>
+    <string name="album_spinner_text">Seleccionar</string>
+    <string-array name="genre_array">
+        <item>Seleccionar</item>
+        <item>Classical</item>
+        <item>Salsa</item>
+        <item>Rock</item>
+        <item>Folk</item>
+    </string-array>
+    <string-array name="record_label_array">
+        <item>Seleccionar</item>
+        <item>Sony Music</item>
+        <item>Emi</item>
+        <item>Discos Fuentes</item>
+        <item>Elektra</item>
+        <item>Fania Records</item>
+    </string-array>
 </resources>

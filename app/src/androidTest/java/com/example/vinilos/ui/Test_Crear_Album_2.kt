@@ -130,20 +130,20 @@ class Test_Crear_Album_2 {
 //            .atPosition(3)
 //        appCompatCheckedTextView.perform(click())
 
-        val appCompatSpinner2 = onView(
-            allOf(
-                withId(R.id.spinner_record_label),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
-                        0
-                    ),
-                    10
-                ),
-                isDisplayed()
-            )
-        )
-        appCompatSpinner2.perform(click())
+//        val appCompatSpinner2 = onView(
+//            allOf(
+//                withId(R.id.spinner_record_label),
+//                childAtPosition(
+//                    childAtPosition(
+//                        withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
+//                        0
+//                    ),
+//                    10
+//                ),
+//                isDisplayed()
+//            )
+//        )
+//        appCompatSpinner2.perform(click())
 
 //        val appCompatCheckedTextView2 = onData(anything())
 //            .inAdapterView(
@@ -168,6 +168,7 @@ class Test_Crear_Album_2 {
                 isDisplayed()
             )
         )
+        Thread.sleep(500)
         appCompatEditText3.perform(replaceText("test"), closeSoftKeyboard())
 
         val materialButton3 = onView(

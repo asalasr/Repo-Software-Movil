@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/nav_collector">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_collector"
+    app:startDestination="@id/collectorFragment">
 
+    <fragment
+        android:id="@+id/collectorFragment"
+        android:name="com.example.vinilos.ui.CollectorFragment"
+        android:label="fragment_collector"
+        tools:layout="@layout/fragment_collector" />
 </navigation>

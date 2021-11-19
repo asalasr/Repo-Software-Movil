@@ -128,6 +128,7 @@ class NetworkServiceAdapter constructor(context: Context) {
     }
 
     fun getCollectors(onComplete:(resp:List<Collector>)->Unit, onError: (error:VolleyError)->Unit) {
+        Log.d("NetworkServices","llego a collector")
         requestQueue.add(getRequest("collectors",
             Response.Listener<String> { response ->
                 Log.d("tagb", response)

@@ -41,12 +41,6 @@ class CollectorViewModel (application: Application) :  AndroidViewModel(applicat
     }
 
 
-    fun onClickCollectorsP(view: View) {
-        // Do something in response to button click
-
-        Log.i("MainMenu", "Click Button Prueba de Collectors")
-        refreshDataFromNetwork()
-    }
 
 
     //onNetwork

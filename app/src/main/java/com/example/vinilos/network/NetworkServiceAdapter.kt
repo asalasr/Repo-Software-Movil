@@ -11,6 +11,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.vinilos.models.Album
 import com.example.vinilos.models.Collector
+import com.example.vinilos.models.Comment
 import com.example.vinilos.models.Prize
 import org.json.JSONArray
 import org.json.JSONObject
@@ -152,6 +153,50 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
+    fun getCommentsAlbum(albumId:Int, onComplete:(resp:List<Comment>)->Unit, onError: (error:VolleyError)->Unit) {
+        Log.d("NetworkServices","llego a Comment")
+        requestQueue.add(getRequest("albums/$albumId/comments",
+            Response.Listener<String> { response ->
+                Log.d("tagb", response)
+                val resp = JSONArray(response)
+                val list = mutableListOf<Comment>()
+                for (i in 0 until resp.length()) {
+                    val item = resp.getJSONObject(i)
+                    list.add(i, Comment(
+                        description = item.getString("description"),
+                        rating = item.getInt("rating"),
+                        albumId = item.getInt("albumId")
+                    )
+                    )
+                }
+                onComplete(list)
+            },
+            Response.ErrorListener {
+                onError(it)
+                Log.d("Error get Comments", it.message.toString())
+            }))
+    }
+
+    fun postComment(albumId: Int,comment: Comment, onComplete:(resp: Boolean)->Unit, onError: (error:VolleyError)->Unit) {
+        val postParams = mapOf<String, Any>(
+            "description" to comment.description,
+            "rating" to comment.rating,
+            "albumId" to comment.albumId,
+        )
+
+        requestQueue.add(postRequest("albums/$albumId/comments",JSONObject(postParams),
+            Response.Listener<JSONObject> { response ->
+
+                var item:JSONObject? = null
+
+                item = response
+                Log.d("Response", item.toString())
+                onComplete(true)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
 
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)

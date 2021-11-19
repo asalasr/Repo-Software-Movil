@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
+            android:maxLength="100"
             android:text="" />
 
         <TextView
@@ -53,6 +54,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
+            android:maxLength="100"
             android:text="" />
 
         <TextView
@@ -68,6 +70,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
+            android:maxLength="500"
             android:text="" />
 
         <Button

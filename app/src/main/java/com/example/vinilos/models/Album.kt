@@ -8,5 +8,6 @@ data class Album(
     val releaseDate: Date,
     val description: String,
     val genre: String,
-    val recordLabel: String
+    val recordLabel: String,
+    val id:Int?
 )

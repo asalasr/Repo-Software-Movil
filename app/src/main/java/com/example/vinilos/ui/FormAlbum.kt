@@ -97,8 +97,9 @@ class FormAlbum : AppCompatActivity() {
         val releaseDatePicker : DatePicker = findViewById(R.id.datePickerReleaseDate)
         val releaseDate:Date = getReleaseDate(releaseDatePicker)
 
-        var album:Album?= Album(name.text.toString(),cover.text.toString(),releaseDate,
-            description.text.toString(),genre.selectedItem.toString(),recordLabel.selectedItem.toString())
+        var album:Album?= Album(name=name.text.toString(),cover=cover.text.toString(),releaseDate=releaseDate,
+            description = description.text.toString(),genre = genre.selectedItem.toString(),
+            recordLabel = recordLabel.selectedItem.toString(),id=0)
 
         if (name.text.toString().trim().isEmpty()){
             name.setError(getString(R.string.campo_obligatorio))

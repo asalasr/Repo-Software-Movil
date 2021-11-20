@@ -10,6 +10,7 @@
     <string name="CreatePrizes">CREAR PREMIO</string>
     <string name="CreateAlbums">CREAR ALBUM</string>
     <string name="Create">CREAR</string>
+    <string name="Points">Puntos:</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Cancel">CANCELAR</string>
     <string name="Create_lbl_Premio">Crear Premio</string>

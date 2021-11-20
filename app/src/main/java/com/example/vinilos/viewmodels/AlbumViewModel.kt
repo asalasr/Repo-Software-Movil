@@ -11,7 +11,7 @@ import java.util.*
 class AlbumViewModel (val aplication: Application) {
 
     private lateinit var albumRepositoryObject: AlbumRepository
-    public fun startPostCreate(name:String,
+    fun startPostCreate(name:String,
                                cover:String,
                                releaseDate: Date,
                                description: String,
@@ -20,7 +20,8 @@ class AlbumViewModel (val aplication: Application) {
                                cbViewSuccess: (resp:Boolean) -> Unit,
                                cbViewError: () -> Unit
                                ) {
-        val album = Album(name, cover, releaseDate, description, genre, recordLabel)
+        val album = Album(name=name, cover=cover, releaseDate=releaseDate,
+            description=description, genre=genre, recordLabel=recordLabel,id=null)
         Log.i("AlbumViewModel", "name: $name")
         Log.i("AlbumViewModel", "cover: $cover")
         Log.i("AlbumViewModel", "releaseDate: $releaseDate")
@@ -38,5 +39,22 @@ class AlbumViewModel (val aplication: Application) {
             cbViewError()
         })
     }
+
+    fun startGetAlbums(        cbViewSuccess: (resp:List<Album>) -> Unit,
+                               cbViewError: () -> Unit
+    ) {
+
+        albumRepositoryObject = AlbumRepository(aplication)
+
+        albumRepositoryObject.getAlbums({
+            Log.i("AlbumViewModel", "Return from Repository: $it")
+            cbViewSuccess(it)
+        },{
+            Log.i("AlbumViewModel", "Error at Repository")
+            cbViewError()
+        })
+    }
+
+
 
 }

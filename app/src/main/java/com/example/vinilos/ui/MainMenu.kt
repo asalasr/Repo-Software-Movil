@@ -41,4 +41,12 @@ class MainMenu : AppCompatActivity() {
         val i = Intent(this, CollectorMenu::class.java)
         startActivity(i)
     }
+
+    fun onClickMenuTest(view: View) {
+        // Do something in response to button click
+
+        Log.i("MainMenu", "Test")
+        val i = Intent(this, FormComment::class.java)
+        startActivity(i)
+    }
 }

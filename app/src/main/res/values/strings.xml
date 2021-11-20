@@ -4,11 +4,11 @@
     <string name="rol_visitor">VISITANTE</string>
     <string name="collectors">COLECCIONISTAS</string>
     <string name="prizes">PREMIOS</string>
-    <string name="albums">ALBUMES</string>
+    <string name="albums">ÁLBUMES</string>
     <string name="artists">ARTISTAS</string>
     <string name="MainMenu">PRINCIPAL</string>
     <string name="CreatePrizes">CREAR PREMIO</string>
-    <string name="CreateAlbums">CREAR ALBUM</string>
+    <string name="CreateAlbums">CREAR ÁLBUM</string>
     <string name="Create">CREAR</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Cancel">CANCELAR</string>
@@ -20,7 +20,7 @@
     <string name="almacenadoOkPremio">El Premio se ha almacenado con exito</string>
     <string name="almacenadoError">Error, Intente de nuevo</string>
     <string name="dialogTitle">Notificación</string>
-    <string name="Create_lbl_Album">Crear album</string>
+    <string name="Create_lbl_Album">Crear álbum</string>
     <string name="album_lbl_nombre">Nombre</string>
     <string name="album_lbl_cover">Cover</string>
     <string name="album_lbl_release_date">Fecha lanzamiento</string>
@@ -46,4 +46,20 @@
         <item>Elektra</item>
         <item>Fania Records</item>
     </string-array>
+    <string name="Create_lbl_comment">Crear comentario</string>
+    <string name="CreateComment">CREAR COMENTARIO</string>
+    <string name="lbl_comment">Comentario</string>
+    <string-array name="rating_array">
+        <item>Seleccionar</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string name="lbl_rating">Puntuación</string>
+    <string name="comment_spinner_text">Seleccionar</string>
+    <string name="comment_alert_creation_title">Creación comentario</string>
+    <string name="commentCreationSuccess">Comentario creado correctamente</string>
+    <string name="commentCreationFail">Error creando comentario, Intente de nuevo</string>
 </resources>

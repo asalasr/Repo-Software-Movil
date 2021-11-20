@@ -9,10 +9,7 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.vinilos.models.Album
-import com.example.vinilos.models.Collector
-import com.example.vinilos.models.Comment
-import com.example.vinilos.models.Prize
+import com.example.vinilos.models.*
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -165,7 +162,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                     list.add(i, Comment(
                         description = item.getString("description"),
                         rating = item.getInt("rating"),
-                        albumId = item.getInt("albumId")
+                        albumId = item.getInt("id")
                     )
                     )
                 }
@@ -177,14 +174,22 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
-    fun postComment(albumId: Int,comment: Comment, onComplete:(resp: Boolean)->Unit, onError: (error:VolleyError)->Unit) {
+    fun postComment(albumId: Int,comment: CommentCollector, onComplete:(resp: Boolean)->Unit, onError: (error:VolleyError)->Unit) {
+
+        val collector  =mapOf<String, Any>(
+            "id" to comment.collector.id
+        )
+
         val postParams = mapOf<String, Any>(
             "description" to comment.description,
             "rating" to comment.rating,
-            "albumId" to comment.albumId,
+            "collector" to collector
         )
 
-        requestQueue.add(postRequest("albums/$albumId/comments",JSONObject(postParams),
+        val obj = JSONObject(postParams)
+        Log.d("salida", obj.toString())
+
+        requestQueue.add(postRequest("albums/$albumId/comments",obj,
             Response.Listener<JSONObject> { response ->
 
                 var item:JSONObject? = null

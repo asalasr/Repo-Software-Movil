@@ -30,6 +30,9 @@
             android:name=".ui.MainMenu"
             android:exported="false" />
         <activity
+            android:name=".ui.FormComment"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>

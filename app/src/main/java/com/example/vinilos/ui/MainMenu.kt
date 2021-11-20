@@ -42,11 +42,4 @@ class MainMenu : AppCompatActivity() {
         startActivity(i)
     }
 
-    fun onClickMenuTest(view: View) {
-        // Do something in response to button click
-
-        Log.i("MainMenu", "Test")
-        val i = Intent(this, FormComment::class.java)
-        startActivity(i)
-    }
 }

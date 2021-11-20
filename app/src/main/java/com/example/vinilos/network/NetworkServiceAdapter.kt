@@ -163,7 +163,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                     list.add(i, Comment(
                         description = item.getString("description"),
                         rating = item.getInt("rating"),
-                        albumId = item.getInt("id")
+                        id = item.getInt("id")
                     )
                     )
                 }

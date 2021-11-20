@@ -2,7 +2,6 @@ package com.example.vinilos.viewmodels
 
 import android.app.Application
 import android.util.Log
-import android.view.View
 import androidx.lifecycle.*
 import com.example.vinilos.models.Collector
 import com.example.vinilos.repositories.CollectorRepository
@@ -39,9 +38,6 @@ class CollectorViewModel (application: Application) :  AndroidViewModel(applicat
     init {
         refreshDataFromNetwork()
     }
-
-
-
 
     //onNetwork
     fun onNetworkErrorShown() {

@@ -13,7 +13,8 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        tools:layout_editor_absoluteX="1dp">
+        tools:layout_editor_absoluteX="1dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textView4"
@@ -40,7 +41,8 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:maxLength="100"
-            android:text="" />
+            android:text=""
+            android:hint="@string/prize_lbl_organization"/>
 
         <TextView
             android:id="@+id/textViewNombre"
@@ -56,7 +58,8 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:maxLength="100"
-            android:text="" />
+            android:text=""
+            android:hint="@string/prize_lbl_nombre"/>
 
         <TextView
             android:id="@+id/textViewDescripcion"
@@ -73,7 +76,8 @@
             android:inputType="text|textMultiLine"
             android:lines="3"
             android:maxLength="500"
-            android:text="" />
+            android:text=""
+            android:hint="@string/prize_lbl_descripcion"/>
 
         <Button
             android:id="@+id/button_create_prize"

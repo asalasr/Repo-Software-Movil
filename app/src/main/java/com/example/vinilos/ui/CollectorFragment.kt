@@ -1,7 +1,6 @@
 package com.example.vinilos.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,15 +10,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.vinilos.R
 import com.example.vinilos.databinding.FragmentCollectorBinding
-import com.example.vinilos.databinding.FragmentPrizeBinding
 import com.example.vinilos.models.Collector
-import com.example.vinilos.models.Prize
 import com.example.vinilos.ui.adapters.CollectorAdapter
-import com.example.vinilos.ui.adapters.PrizeAdapter
 import com.example.vinilos.viewmodels.CollectorViewModel
-import com.example.vinilos.viewmodels.PrizeViewModel
 
 
 class CollectorFragment : Fragment() {
@@ -52,14 +46,12 @@ class CollectorFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        Log.i("titulo",""+activity.actionBar?.title)
 
         viewModel = ViewModelProvider(this, CollectorViewModel.Factory(activity.application)).get(
             CollectorViewModel::class.java)
         viewModel.collectors.observe(viewLifecycleOwner, Observer<List<Collector>> {
             it.apply {
                 viewModelAdapter!!.collectors = this
-                Log.i("llego aqui","hola soy api")
             }
         })
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->

@@ -91,7 +91,6 @@ class NetworkServiceAdapter constructor(context: Context) {
                                 organitation = item.getString("organization"),
                                 description = item.getString("description")
                         )
-
                     )
                 }
                 onComplete(list)

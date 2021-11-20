@@ -20,4 +20,18 @@ class AlbumRepository (val application: Application) {
         )
     }
 
+    fun getAlbums(cbSuccess: (resp: List<Album>) -> Unit, cbError: (resp: VolleyError) -> Unit){
+
+        NetworkServiceAdapter.getInstance(application).getAlbums({
+            Log.i("AlbumRepository" ,"Obtuvo álbums con extio")
+            cbSuccess(it)
+        },{
+            Log.i("AlbumRepository" ,"Error en la obtención de álbums")
+            cbError(it)
+        }
+        )
+    }
+
+
+
 }

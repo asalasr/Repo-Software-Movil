@@ -15,6 +15,7 @@ import com.example.vinilos.models.Comment
 import com.example.vinilos.models.Prize
 import org.json.JSONArray
 import org.json.JSONObject
+import java.text.SimpleDateFormat
 
 class NetworkServiceAdapter constructor(context: Context) {
     companion object{
@@ -198,6 +199,32 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
+    fun getAlbums(onComplete:(resp:List<Album>)->Unit, onError: (error:VolleyError)->Unit) {
+        requestQueue.add(getRequest("albums",
+            { response ->
+                Log.d("tagb", response)
+                val resp = JSONArray(response)
+                val list = mutableListOf<Album>()
+                for (i in 0 until resp.length()) {
+                    val item = resp.getJSONObject(i)
+                    list.add(i, Album(
+                        name = item.getString("name"),
+                        cover = item.getString("cover"),
+                        description = item.getString("description"),
+                        recordLabel = item.getString("recordLabel"),
+                        genre = item.getString("genre"),
+                        releaseDate = SimpleDateFormat("dd-MM-yyyy").parse(item.getString("releaseDate")),
+                        id = item.getString("id")?.toInt()
+                    ))
+                }
+                onComplete(list)
+            },
+            {
+                onError(it)
+                Log.d("Error get Prizes", it.message.toString())
+            }))
+    }
+
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
     }
@@ -207,4 +234,7 @@ class NetworkServiceAdapter constructor(context: Context) {
     private fun putRequest(path: String, body: JSONObject,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ):JsonObjectRequest{
         return  JsonObjectRequest(Request.Method.PUT, BASE_URL+path, body, responseListener, errorListener)
     }
+
+
+
 }

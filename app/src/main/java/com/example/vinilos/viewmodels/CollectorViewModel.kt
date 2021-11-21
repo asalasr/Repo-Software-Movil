@@ -41,8 +41,6 @@ class CollectorViewModel (application: Application) :  AndroidViewModel(applicat
     }
 
 
-
-
     //onNetwork
     fun onNetworkErrorShown() {
         _isNetworkErrorShown.value = true

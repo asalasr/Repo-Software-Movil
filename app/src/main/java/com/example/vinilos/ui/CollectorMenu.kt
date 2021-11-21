@@ -1,15 +1,9 @@
 package com.example.vinilos.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.example.vinilos.R
-import com.example.vinilos.models.Prize
-import com.example.vinilos.repositories.CollectorRepository
 import com.example.vinilos.viewmodels.CollectorViewModel
-import com.example.vinilos.viewmodels.PrizeViewModel
-import java.util.stream.Collector
 
 class CollectorMenu : AppCompatActivity() {
 

@@ -1,7 +1,6 @@
 package com.example.vinilos.repositories
 
 import android.app.Application
-import android.util.Log
 import com.android.volley.VolleyError
 import com.example.vinilos.models.Collector
 import com.example.vinilos.network.NetworkServiceAdapter

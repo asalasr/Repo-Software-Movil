@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
 import com.example.vinilos.models.Prize
 import androidx.lifecycle.Observer
-import com.example.vinilos.databinding.ActivityPrizesMenusBinding
 import com.example.vinilos.databinding.FragmentPrizeBinding
 import com.example.vinilos.ui.adapters.PrizeAdapter
 import com.example.vinilos.viewmodels.PrizeViewModel

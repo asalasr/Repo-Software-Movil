@@ -21,7 +21,7 @@ class CommentRepository (val application: Application){
 
     fun postCommentAlbum(albumId: Int, comment: CommentCollector, callback: (Boolean)->Unit, onError: (VolleyError)->Unit) {
         //Determinar la fuente de datos que se va a utilizar. Si es necesario consultar la red, ejecutar el siguiente código
-        Log.i("CommentRepository" ,"aqui llego ${comment.collector.id}")
+      
         NetworkServiceAdapter.getInstance(application).postComment(albumId,comment,{
             //Guardar los coleccionistas de la variable it en un almacén de datos local para uso futuro
             callback(it)

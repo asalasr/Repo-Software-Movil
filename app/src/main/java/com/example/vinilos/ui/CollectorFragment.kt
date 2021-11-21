@@ -1,11 +1,11 @@
 package com.example.vinilos.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,15 +48,18 @@ class CollectorFragment : Fragment() {
         }
 
         viewModel = ViewModelProvider(this, CollectorViewModel.Factory(activity.application)).get(
-            CollectorViewModel::class.java)
+            CollectorViewModel::class.java
+        )
         viewModel.collectors.observe(viewLifecycleOwner, Observer<List<Collector>> {
             it.apply {
                 viewModelAdapter!!.collectors = this
             }
         })
-        viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
-            if (isNetworkError) onNetworkError()
-        })
+        viewModel.eventNetworkError.observe(
+            viewLifecycleOwner,
+            Observer<Boolean> { isNetworkError ->
+                if (isNetworkError) onNetworkError()
+            })
     }
 
     override fun onDestroyView() {
@@ -65,7 +68,7 @@ class CollectorFragment : Fragment() {
     }
 
     private fun onNetworkError() {
-        if(!viewModel.isNetworkErrorShown.value!!) {
+        if (!viewModel.isNetworkErrorShown.value!!) {
             Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
             viewModel.onNetworkErrorShown()
         }

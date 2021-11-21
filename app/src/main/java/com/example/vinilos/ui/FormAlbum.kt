@@ -2,17 +2,17 @@ package com.example.vinilos.ui
 
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
-import com.example.vinilos.R
-import com.example.vinilos.viewmodels.AlbumViewModel
-import java.util.*
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import com.example.vinilos.R
 import com.example.vinilos.models.Album
+import com.example.vinilos.viewmodels.AlbumViewModel
 import java.text.SimpleDateFormat
+import java.util.*
 
 
 class FormAlbum : AppCompatActivity() {
@@ -44,40 +44,48 @@ class FormAlbum : AppCompatActivity() {
             spinnerRecordLabel.adapter = adapter
         }
 
-        val releaseDatePicker : DatePicker = findViewById(R.id.datePickerReleaseDate)
-        releaseDatePicker.maxDate=Date().getTime()
+        val releaseDatePicker: DatePicker = findViewById(R.id.datePickerReleaseDate)
+        releaseDatePicker.maxDate = Date().getTime()
 
     }
 
     fun onCLickCreateAlbum(view: View) {
 
-        val album:Album? = validateFormAlbum()
+        val album: Album? = validateFormAlbum()
 
-        if(album != null){
+        if (album != null) {
             Log.i("FormAlbum", "Click Button Crear")
-            Toast.makeText(applicationContext,"Creando Album...",Toast.LENGTH_LONG).show()
-            albumViewModelClass =  AlbumViewModel(this.application)
+            Toast.makeText(applicationContext, "Creando Album...", Toast.LENGTH_LONG).show()
+            albumViewModelClass = AlbumViewModel(this.application)
 
-            albumViewModelClass.startPostCreate(album.name,album.cover, album.releaseDate,
+            albumViewModelClass.startPostCreate(album.name, album.cover, album.releaseDate,
                 album.description, album.genre, album.recordLabel, {
-                if (it){
-                    showResponseAlert(R.string.albumCreationSuccess,android.R.drawable.ic_dialog_info,true)
-                }
-            }, {
-                    showResponseAlert(R.string.albumCreationFail,android.R.drawable.ic_dialog_alert,false)
-            } )
+                    if (it) {
+                        showResponseAlert(
+                            R.string.albumCreationSuccess,
+                            android.R.drawable.ic_dialog_info,
+                            true
+                        )
+                    }
+                }, {
+                    showResponseAlert(
+                        R.string.albumCreationFail,
+                        android.R.drawable.ic_dialog_alert,
+                        false
+                    )
+                })
         } else {
             return
         }
     }
 
-    fun showResponseAlert(message:Int,icon:Int,goBack:Boolean) {
+    fun showResponseAlert(message: Int, icon: Int, goBack: Boolean) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.album_alert_creation_title)
         builder.setMessage(message)
         builder.setIcon(icon)
         builder.setPositiveButton("OK") { dialogInterface, which ->
-            if(goBack) {
+            if (goBack) {
                 val intent = Intent(this, ListAlbums::class.java)
                 startActivity(intent)
             }
@@ -87,57 +95,59 @@ class FormAlbum : AppCompatActivity() {
         alertDialog.show()
     }
 
-    fun validateFormAlbum (): Album? {
+    fun validateFormAlbum(): Album? {
 
-        val name : TextView = findViewById(R.id.editTextName)
-        val cover : TextView = findViewById(R.id.editTextCover)
-        val genre : Spinner = findViewById(R.id.spinner_genre)
-        val recordLabel : Spinner = findViewById(R.id.spinner_record_label)
-        val description : TextView = findViewById(R.id.editTextTextDescription)
-        val releaseDatePicker : DatePicker = findViewById(R.id.datePickerReleaseDate)
-        val releaseDate:Date = getReleaseDate(releaseDatePicker)
+        val name: TextView = findViewById(R.id.editTextName)
+        val cover: TextView = findViewById(R.id.editTextCover)
+        val genre: Spinner = findViewById(R.id.spinner_genre)
+        val recordLabel: Spinner = findViewById(R.id.spinner_record_label)
+        val description: TextView = findViewById(R.id.editTextTextDescription)
+        val releaseDatePicker: DatePicker = findViewById(R.id.datePickerReleaseDate)
+        val releaseDate: Date = getReleaseDate(releaseDatePicker)
 
-        var album:Album?= Album(name=name.text.toString(),cover=cover.text.toString(),releaseDate=releaseDate,
-            description = description.text.toString(),genre = genre.selectedItem.toString(),
-            recordLabel = recordLabel.selectedItem.toString(),id=0)
+        var album: Album? = Album(
+            name = name.text.toString(), cover = cover.text.toString(), releaseDate = releaseDate,
+            description = description.text.toString(), genre = genre.selectedItem.toString(),
+            recordLabel = recordLabel.selectedItem.toString(), id = 0
+        )
 
-        if (name.text.toString().trim().isEmpty()){
+        if (name.text.toString().trim().isEmpty()) {
             name.setError(getString(R.string.campo_obligatorio))
             name.requestFocus()
-            album= null
+            album = null
         }
-        if (cover.text.toString().trim().isEmpty()){
+        if (cover.text.toString().trim().isEmpty()) {
             cover.setError(getString(R.string.campo_obligatorio))
             cover.requestFocus()
-            album= null
+            album = null
         }
 
-        if (genre.selectedItem.toString().equals(getString(R.string.album_spinner_text))){
+        if (genre.selectedItem.toString().equals(getString(R.string.album_spinner_text))) {
 
-            val spinnerError:TextView = genre.selectedView as TextView
+            val spinnerError: TextView = genre.selectedView as TextView
             spinnerError.setError("");
             spinnerError.setTextColor(Color.RED);
             spinnerError.setText(getString(R.string.campo_obligatorio));
-            album= null
+            album = null
         }
-        if (recordLabel.selectedItem.toString().equals(getString(R.string.album_spinner_text))){
-            val spinnerError:TextView = recordLabel.selectedView as TextView
+        if (recordLabel.selectedItem.toString().equals(getString(R.string.album_spinner_text))) {
+            val spinnerError: TextView = recordLabel.selectedView as TextView
             spinnerError.setError("");
             spinnerError.setTextColor(Color.RED);
             spinnerError.setText(getString(R.string.campo_obligatorio));
-            album= null
+            album = null
         }
-        if (description.text.toString().trim().isEmpty()){
+        if (description.text.toString().trim().isEmpty()) {
             description.setError(getString(R.string.campo_obligatorio))
             description.requestFocus()
-            album= null
+            album = null
         }
 
         return album
 
     }
 
-    fun getReleaseDate(releaseDate : DatePicker):Date {
+    fun getReleaseDate(releaseDate: DatePicker): Date {
 
         val day: Int = releaseDate.getDayOfMonth()
         val month: Int = releaseDate.getMonth()

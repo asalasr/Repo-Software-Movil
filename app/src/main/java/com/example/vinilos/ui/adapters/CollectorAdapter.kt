@@ -10,20 +10,24 @@ import com.example.vinilos.R
 import com.example.vinilos.databinding.CollectorItemBinding
 import com.example.vinilos.models.Collector
 
-class CollectorAdapter: RecyclerView.Adapter<CollectorAdapter.CollectorViewHolder>() {
+class CollectorAdapter : RecyclerView.Adapter<CollectorAdapter.CollectorViewHolder>() {
 
-    var collectors :List<Collector> = emptyList()
+    var collectors: List<Collector> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectorAdapter.CollectorViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): CollectorAdapter.CollectorViewHolder {
         val withDataBinding: CollectorItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             CollectorAdapter.CollectorViewHolder.LAYOUT,
             parent,
-            false)
+            false
+        )
         return CollectorAdapter.CollectorViewHolder(withDataBinding)
     }
 
@@ -35,14 +39,13 @@ class CollectorAdapter: RecyclerView.Adapter<CollectorAdapter.CollectorViewHolde
 
             // Navigate using that action
             //  holder.viewDataBinding.root.findNavController().navigate(action)
-            Log.i("Clic en un collector","se dio clic en un collector"+collectors[position].name)
+            Log.i("Clic en un collector", "se dio clic en un collector" + collectors[position].name)
         }
     }
 
     override fun getItemCount(): Int {
         return collectors.size
     }
-
 
 
     class CollectorViewHolder(val viewDataBinding: CollectorItemBinding) :

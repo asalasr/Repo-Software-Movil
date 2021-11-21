@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,5 +25,5 @@
         android:layout_margin="16dp"
         android:onClick="onClickFlapAlbums"
         android:src="@drawable/ic_baseline_add_24"
-        android:contentDescription="@string/Create_lbl_Album"/>
+        android:contentDescription="@string/Create_lbl_Album" />
 </FrameLayout>

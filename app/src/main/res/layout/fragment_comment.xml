@@ -16,14 +16,14 @@
             android:layout_height="wrap_content"
             android:text="@string/description"
             android:textStyle="bold"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp" />
+
         <TextView
             android:id="@+id/detailAlbumtext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
-            android:layout_margin="16dp"
-            />
+            android:layout_margin="16dp" />
 
         <TextView
             android:id="@+id/titleComentarios"
@@ -33,13 +33,14 @@
             android:text="@string/comments"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:padding="16dp"/>
+            android:padding="16dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/fragments_rvcomments"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             tools:listitem="@layout/comment__item" />
+
         <Button
             android:id="@+id/button_go_create_comment"
             android:layout_width="match_parent"

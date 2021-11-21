@@ -10,9 +10,9 @@ import com.example.vinilos.R
 import com.example.vinilos.databinding.PrizeItemBinding
 import com.example.vinilos.models.Prize
 
-class PrizeAdapter : RecyclerView.Adapter<PrizeAdapter.PrizeViewHolder>(){
+class PrizeAdapter : RecyclerView.Adapter<PrizeAdapter.PrizeViewHolder>() {
 
-    var prizes :List<Prize> = emptyList()
+    var prizes: List<Prize> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -23,7 +23,8 @@ class PrizeAdapter : RecyclerView.Adapter<PrizeAdapter.PrizeViewHolder>(){
             LayoutInflater.from(parent.context),
             PrizeViewHolder.LAYOUT,
             parent,
-            false)
+            false
+        )
         return PrizeViewHolder(withDataBinding)
     }
 
@@ -32,7 +33,7 @@ class PrizeAdapter : RecyclerView.Adapter<PrizeAdapter.PrizeViewHolder>(){
             it.prize = prizes[position]
         }
         holder.viewDataBinding.root.setOnClickListener {
-            Log.i("Clic en un premio","se dio clic en un premio"+prizes[position].name)
+            Log.i("Clic en un premio", "se dio clic en un premio" + prizes[position].name)
         }
     }
 
@@ -48,7 +49,6 @@ class PrizeAdapter : RecyclerView.Adapter<PrizeAdapter.PrizeViewHolder>(){
             val LAYOUT = R.layout.prize_item
         }
     }
-
 
 
 }

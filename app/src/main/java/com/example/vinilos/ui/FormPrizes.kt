@@ -8,10 +8,10 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.vinilos.R
 import com.example.vinilos.viewmodels.PrizeViewModel
-import androidx.lifecycle.Observer
 
 class FormPrizes : AppCompatActivity() {
 
@@ -25,27 +25,30 @@ class FormPrizes : AppCompatActivity() {
         val activity = requireNotNull(this) {
             "You can only access the viewModel after onActivityCreated()"
         }
-       // Iniciar el view model
-        prizeViewModelClass = ViewModelProvider(this, PrizeViewModel.Factory(activity.application)).get(PrizeViewModel::class.java)
-       //iniciar el lugar de observar
+        // Iniciar el view model
+        prizeViewModelClass = ViewModelProvider(
+            this,
+            PrizeViewModel.Factory(activity.application)
+        ).get(PrizeViewModel::class.java)
+        //iniciar el lugar de observar
 
-        var getResultTextView : String
-        var getResultErrorViewText : String
-        var getResultLoadText : String
+        var getResultTextView: String
+        var getResultErrorViewText: String
+        var getResultLoadText: String
 
         //Iniciar los observer
         val eventNetworkErrorObserver = Observer<Boolean> { newName ->
             // Update the UI, in this case, a TextView.
-            getResultErrorViewText = "eventNetworkErrorObserver: "+newName
+            getResultErrorViewText = "eventNetworkErrorObserver: " + newName
         }
 
         val isNetworkErrorShownObserver = Observer<Boolean> { newName ->
             // Update the UI, in this case, a TextView.
-            getResultTextView = "isNetworkErrorShownObserver: "+newName
+            getResultTextView = "isNetworkErrorShownObserver: " + newName
         }
         val isLoandingObserver = Observer<Boolean> { newName ->
             // Update the UI, in this case, a TextView.
-            getResultLoadText = "isNetworkErrorShownObserver: "+newName
+            getResultLoadText = "isNetworkErrorShownObserver: " + newName
         }
 
         //vincular los observer
@@ -59,31 +62,31 @@ class FormPrizes : AppCompatActivity() {
     @SuppressLint("WrongViewCast")
     fun onCLickCreatePrize(view: View) {
 
-        var txtOrganizacion :TextView = findViewById(R.id.editTextTextOrganizacion)
-        val txtNombre : TextView = findViewById(R.id.editTextTextNombre)
-        val txtDescripcion : TextView = findViewById(R.id.editTextTextDescripcion)
+        var txtOrganizacion: TextView = findViewById(R.id.editTextTextOrganizacion)
+        val txtNombre: TextView = findViewById(R.id.editTextTextNombre)
+        val txtDescripcion: TextView = findViewById(R.id.editTextTextDescripcion)
 
-        if (txtOrganizacion.text.toString().trim().isEmpty()){
+        if (txtOrganizacion.text.toString().trim().isEmpty()) {
             txtOrganizacion.setError(getString(R.string.campo_obligatorio))
             txtOrganizacion.requestFocus()
             return
         }
-        if (txtNombre.text.toString().trim().isEmpty()){
+        if (txtNombre.text.toString().trim().isEmpty()) {
             txtNombre.setError(getString(R.string.campo_obligatorio))
             txtNombre.requestFocus()
             return
         }
-        if (txtDescripcion.text.toString().trim().isEmpty()){
+        if (txtDescripcion.text.toString().trim().isEmpty()) {
             txtDescripcion.setError(getString(R.string.campo_obligatorio))
             txtDescripcion.requestFocus()
             return
         }
 
         //envia a guardar
-        prizeViewModelClass.startPostCreate( txtOrganizacion.text.toString().trim(),
+        prizeViewModelClass.startPostCreate(txtOrganizacion.text.toString().trim(),
             txtNombre.text.toString().trim(),
-            txtDescripcion.text.toString().trim(),{
-                if (it){
+            txtDescripcion.text.toString().trim(), {
+                if (it) {
                     var builder = AlertDialog.Builder(this)
                     builder.setTitle(R.string.prizes)
                     builder.setMessage(R.string.almacenadoOkPremio)
@@ -109,10 +112,10 @@ class FormPrizes : AppCompatActivity() {
                 alertDialog.setCancelable(false)
                 alertDialog.show()
 
-            } )
-        txtOrganizacion.text= ""
-        txtNombre.text=""
-        txtDescripcion.text=""
+            })
+        txtOrganizacion.text = ""
+        txtNombre.text = ""
+        txtDescripcion.text = ""
     }
 
     fun onCLickCancelPrize(view: View) {

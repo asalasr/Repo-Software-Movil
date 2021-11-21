@@ -10,9 +10,9 @@ import com.example.vinilos.R
 import com.example.vinilos.databinding.CommentItemBinding
 import com.example.vinilos.models.Comment
 
-class CommentAdapter: RecyclerView.Adapter<CommentAdapter.CommentViewHolder>()  {
+class CommentAdapter : RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {
 
-    var comments :List<Comment> = emptyList()
+    var comments: List<Comment> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -23,7 +23,8 @@ class CommentAdapter: RecyclerView.Adapter<CommentAdapter.CommentViewHolder>()  
             LayoutInflater.from(parent.context),
             CommentViewHolder.LAYOUT,
             parent,
-            false)
+            false
+        )
         return CommentViewHolder(withDataBinding)
     }
 
@@ -35,14 +36,16 @@ class CommentAdapter: RecyclerView.Adapter<CommentAdapter.CommentViewHolder>()  
 
             // Navigate using that action
             //  holder.viewDataBinding.root.findNavController().navigate(action)
-            Log.i("Clic en un collector","se dio clic en un commentario"+comments[position].description)
+            Log.i(
+                "Clic en un collector",
+                "se dio clic en un commentario" + comments[position].description
+            )
         }
     }
 
     override fun getItemCount(): Int {
         return comments.size
     }
-
 
 
     class CommentViewHolder(val viewDataBinding: CommentItemBinding) :
@@ -52,7 +55,6 @@ class CommentAdapter: RecyclerView.Adapter<CommentAdapter.CommentViewHolder>()  
             val LAYOUT = R.layout.comment__item
         }
     }
-
 
 
 }

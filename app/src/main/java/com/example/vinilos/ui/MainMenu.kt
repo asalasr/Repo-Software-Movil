@@ -41,4 +41,5 @@ class MainMenu : AppCompatActivity() {
         val i = Intent(this, CollectorMenu::class.java)
         startActivity(i)
     }
+
 }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.FormComment">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp">
+        <TextView
+            android:id="@+id/textViewCreateCommentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:text="@string/Create_lbl_comment"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="29dp" />
+
+    <TextView
+        android:id="@+id/textViewRating"
+        android:layout_width="373dp"
+        android:layout_height="17dp"
+        android:text="@string/lbl_rating"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="116dp" />
+        <Spinner
+            android:id="@+id/spinner_rating"
+            android:layout_width="371dp"
+            android:layout_height="41dp"
+            />
+
+
+        <TextView
+        android:id="@+id/textViewComment"
+        android:layout_width="373dp"
+        android:layout_height="17dp"
+        android:text="@string/lbl_comment"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="184dp" />
+        <EditText
+            android:id="@+id/editTextComment"
+            android:layout_width="372dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="text|textMultiLine"
+            android:lines="3"
+            android:text=""
+            tools:layout_editor_absoluteX="17dp"
+            tools:layout_editor_absoluteY="202dp" />
+
+
+        <Button
+            android:id="@+id/buttonCreateComment"
+            android:layout_width="389dp"
+            android:layout_height="54dp"
+            android:onClick="onCLickCreateComment"
+            android:text="@string/CreateComment"
+            tools:layout_editor_absoluteX="6dp"
+            tools:layout_editor_absoluteY="616dp" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

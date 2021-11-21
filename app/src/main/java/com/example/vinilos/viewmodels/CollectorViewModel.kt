@@ -6,7 +6,7 @@ import androidx.lifecycle.*
 import com.example.vinilos.models.Collector
 import com.example.vinilos.repositories.CollectorRepository
 
-class CollectorViewModel (application: Application) :  AndroidViewModel(application) {
+class CollectorViewModel(application: Application) : AndroidViewModel(application) {
 
     //MUTABLES
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
@@ -52,7 +52,7 @@ class CollectorViewModel (application: Application) :  AndroidViewModel(applicat
             _collector.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
-        },{
+        }, {
             _eventNetworkError.value = true
         })
     }

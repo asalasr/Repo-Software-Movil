@@ -1,17 +1,13 @@
 package com.example.vinilos.viewmodels
 
 import android.app.Application
-import android.text.style.BulletSpan
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.vinilos.models.Album
-import com.example.vinilos.models.Collector
-import com.example.vinilos.models.Prize
 import com.example.vinilos.repositories.AlbumRepository
-import com.example.vinilos.repositories.CollectorRepository
 import java.util.*
 
-class AlbumViewModel (val aplication: Application) :  AndroidViewModel(aplication) {
+class AlbumViewModel(val aplication: Application) : AndroidViewModel(aplication) {
 
     private var albumRepositoryObject = AlbumRepository(aplication)
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
@@ -28,17 +24,20 @@ class AlbumViewModel (val aplication: Application) :  AndroidViewModel(aplicatio
         get() = _albums
 
 
-    fun startPostCreate(name:String,
-                               cover:String,
-                               releaseDate: Date,
-                               description: String,
-                               genre: String,
-                               recordLabel: String,
-                               cbViewSuccess: (resp:Boolean) -> Unit,
-                               cbViewError: () -> Unit
-                               ) {
-        val album = Album(name=name, cover=cover, releaseDate=releaseDate,
-            description=description, genre=genre, recordLabel=recordLabel,id=null)
+    fun startPostCreate(
+        name: String,
+        cover: String,
+        releaseDate: Date,
+        description: String,
+        genre: String,
+        recordLabel: String,
+        cbViewSuccess: (resp: Boolean) -> Unit,
+        cbViewError: () -> Unit
+    ) {
+        val album = Album(
+            name = name, cover = cover, releaseDate = releaseDate,
+            description = description, genre = genre, recordLabel = recordLabel, id = null
+        )
         Log.i("AlbumViewModel", "name: $name")
         Log.i("AlbumViewModel", "cover: $cover")
         Log.i("AlbumViewModel", "releaseDate: $releaseDate")
@@ -46,10 +45,10 @@ class AlbumViewModel (val aplication: Application) :  AndroidViewModel(aplicatio
         Log.i("AlbumViewModel", "genre: $genre")
         Log.i("AlbumViewModel", "recordLabel: $recordLabel")
 
-        albumRepositoryObject.postAlbum(album,{
+        albumRepositoryObject.postAlbum(album, {
             Log.i("AlbumViewModel", "Return from Repository: $it")
             cbViewSuccess(it)
-        },{
+        }, {
             Log.i("AlbumViewModel", "Error at Repository")
             cbViewError()
         })
@@ -73,7 +72,7 @@ class AlbumViewModel (val aplication: Application) :  AndroidViewModel(aplicatio
             _albums.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
-        },{
+        }, {
             _eventNetworkError.value = true
         })
     }

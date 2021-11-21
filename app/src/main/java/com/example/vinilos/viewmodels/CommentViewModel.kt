@@ -7,7 +7,7 @@ import com.example.vinilos.models.Comment
 import com.example.vinilos.models.CommentCollector
 import com.example.vinilos.repositories.CommentRepository
 
-class CommentViewModel (application: Application, albumId: Int) :  AndroidViewModel(application){
+class CommentViewModel(application: Application, albumId: Int) : AndroidViewModel(application) {
 
     private var commentsRepositoryObject = CommentRepository(application)
 
@@ -28,38 +28,42 @@ class CommentViewModel (application: Application, albumId: Int) :  AndroidViewMo
     val isNetworkErrorShown: LiveData<Boolean>
         get() = _isNetworkErrorShown
 
-    val id_album:Int = albumId
+    val id_album: Int = albumId
 
     init {
         refreshDataFromNetwork()
     }
 
     private fun refreshDataFromNetwork() {
-        commentsRepositoryObject.refreshData(id_album,{
+        commentsRepositoryObject.refreshData(id_album, {
             _comments.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
-        },{
+        }, {
             _eventNetworkError.value = true
         })
     }
 
     //post
-    fun startPostCreate(comment: CommentCollector,
-                        cbViewSuccess: (resp:Boolean) -> Unit,
-                        cbViewError: () -> Unit
+    fun startPostCreate(
+        comment: CommentCollector,
+        cbViewSuccess: (resp: Boolean) -> Unit,
+        cbViewError: () -> Unit
     ) {
 
-        Log.i("CommentViewModel", "Se recibe: rating: ${comment.rating}, comment: ${comment.description} albumId: $id_album collector:${comment.collector.id}")
+        Log.i(
+            "CommentViewModel",
+            "Se recibe: rating: ${comment.rating}, comment: ${comment.description} albumId: $id_album collector:${comment.collector.id}"
+        )
         _Loanding.value = true
 
-        commentsRepositoryObject.postCommentAlbum(id_album,comment,{
+        commentsRepositoryObject.postCommentAlbum(id_album, comment, {
             _Loanding.value = false
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
             cbViewSuccess(it)
 
-        },{
+        }, {
             Log.d("Error", it.toString())
             _eventNetworkError.value = true
             _Loanding.value = false

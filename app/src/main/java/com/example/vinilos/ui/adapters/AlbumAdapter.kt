@@ -11,26 +11,30 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
 import com.example.vinilos.databinding.AlbumItemBinding
 import com.example.vinilos.models.Album
-import com.squareup.picasso.Picasso
 import com.example.vinilos.ui.AlbumFragmentDirections
+import com.squareup.picasso.Picasso
 
 
 class AlbumAdapter : RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {
 
     val picasso = Picasso.get()
 
-    var albums :List<Album> = emptyList()
+    var albums: List<Album> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumAdapter.AlbumViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): AlbumAdapter.AlbumViewHolder {
         val withDataBinding: AlbumItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             AlbumAdapter.AlbumViewHolder.LAYOUT,
             parent,
-            false)
+            false
+        )
         return AlbumAdapter.AlbumViewHolder(withDataBinding)
     }
 
@@ -45,11 +49,14 @@ class AlbumAdapter : RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {
 
             // Navigate using that action
             var id = albums[position].id
-            if(id == null) {
+            if (id == null) {
                 id = 100
             }
-            Log.i("Clic en un album","se dio clic en un album"+albums[position].name)
-            val action = AlbumFragmentDirections.actionAlbumFragmentToCommentFragment(id,albums[position].description)
+            Log.i("Clic en un album", "se dio clic en un album" + albums[position].name)
+            val action = AlbumFragmentDirections.actionAlbumFragmentToCommentFragment(
+                id,
+                albums[position].description
+            )
             holder.viewDataBinding.root.findNavController().navigate(action)
 
         }

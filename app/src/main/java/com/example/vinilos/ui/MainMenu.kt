@@ -13,7 +13,7 @@ class MainMenu : AppCompatActivity() {
         setContentView(R.layout.activity_main_menu)
         val bundle = intent.extras
         val dato = bundle?.get("role")
-        Log.i("MainMenu", ""+dato)
+        Log.i("MainMenu", "" + dato)
         val titleMenu: String = getString(R.string.MainMenu)
         setTitle(titleMenu);
     }

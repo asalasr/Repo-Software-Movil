@@ -1,13 +1,11 @@
 package com.example.vinilos.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.vinilos.R
-import android.content.Intent
-
-
 
 
 class MainActivity : AppCompatActivity() {

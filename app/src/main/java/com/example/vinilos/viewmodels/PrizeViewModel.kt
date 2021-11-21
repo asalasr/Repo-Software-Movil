@@ -6,7 +6,7 @@ import androidx.lifecycle.*
 import com.example.vinilos.models.Prize
 import com.example.vinilos.repositories.PrizeRepository
 
-class PrizeViewModel (application: Application) :  AndroidViewModel(application) {
+class PrizeViewModel(application: Application) : AndroidViewModel(application) {
 
 
     //MUTABLES
@@ -42,29 +42,31 @@ class PrizeViewModel (application: Application) :  AndroidViewModel(application)
     }
 
     //post
-    public fun startPostCreate( organitation:String,
-                                name:String,
-                                description:String,
-                                cbViewSuccess: (resp:Boolean) -> Unit,
-                                cbViewError: () -> Unit
+    public fun startPostCreate(
+        organitation: String,
+        name: String,
+        description: String,
+        cbViewSuccess: (resp: Boolean) -> Unit,
+        cbViewError: () -> Unit
     ) {
-        val prize = Prize(0,organitation, name, description)
+        val prize = Prize(0, organitation, name, description)
         Log.i("PrizeViewModel", "Se recibe: $organitation, $name y $description")
         _Loanding.value = true
 
-        prizeRepositoryObject.postPrize(prize,{
+        prizeRepositoryObject.postPrize(prize, {
             _Loanding.value = false
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
             cbViewSuccess(it)
 
-        },{
+        }, {
             Log.d("Error", it.toString())
             _eventNetworkError.value = true
             _Loanding.value = false
             cbViewError()
         })
     }
+
     //onNetwork
     fun onNetworkErrorShown() {
         _isNetworkErrorShown.value = true
@@ -76,7 +78,7 @@ class PrizeViewModel (application: Application) :  AndroidViewModel(application)
             _prizes.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
-        },{
+        }, {
             _eventNetworkError.value = true
         })
     }

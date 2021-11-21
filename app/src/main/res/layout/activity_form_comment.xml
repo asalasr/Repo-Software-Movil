@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,6 +12,7 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp">
+
         <TextView
             android:id="@+id/textViewCreateCommentTitle"
             android:layout_width="match_parent"
@@ -25,29 +25,30 @@
             tools:layout_editor_absoluteX="30dp"
             tools:layout_editor_absoluteY="29dp" />
 
-    <TextView
-        android:id="@+id/textViewRating"
-        android:layout_width="373dp"
-        android:layout_height="17dp"
-        android:text="@string/lbl_rating"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="116dp" />
+        <TextView
+            android:id="@+id/textViewRating"
+            android:layout_width="373dp"
+            android:layout_height="17dp"
+            android:text="@string/lbl_rating"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="116dp" />
+
         <Spinner
             android:id="@+id/spinner_rating"
             android:layout_width="371dp"
-            android:layout_height="41dp"
-            />
+            android:layout_height="41dp" />
 
 
         <TextView
-        android:id="@+id/textViewComment"
-        android:layout_width="373dp"
-        android:layout_height="17dp"
-        android:text="@string/lbl_comment"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="184dp" />
+            android:id="@+id/textViewComment"
+            android:layout_width="373dp"
+            android:layout_height="17dp"
+            android:text="@string/lbl_comment"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="184dp" />
+
         <EditText
             android:id="@+id/editTextComment"
             android:layout_width="372dp"

@@ -13,7 +13,7 @@ class MainMenu : AppCompatActivity() {
         setContentView(R.layout.activity_main_menu)
         val bundle = intent.extras
         val dato = bundle?.get("role")
-        Log.i("MainMenu", ""+dato)
+        Log.i("MainMenu", "" + dato)
         val titleMenu: String = getString(R.string.MainMenu)
         setTitle(titleMenu);
     }
@@ -33,4 +33,13 @@ class MainMenu : AppCompatActivity() {
         val i = Intent(this, ListAlbums::class.java)
         startActivity(i)
     }
+
+    fun onClickMenuCollectors(view: View) {
+        // Do something in response to button click
+
+        Log.i("MainMenu", "Click Button Menu to Collectors")
+        val i = Intent(this, CollectorMenu::class.java)
+        startActivity(i)
+    }
+
 }

@@ -9,7 +9,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.vinilos.R
-import com.example.vinilos.databinding.ActivityMainBinding
 import com.example.vinilos.databinding.ActivityPrizesMenusBinding
 
 class PrizesMenus : AppCompatActivity() {
@@ -30,8 +29,8 @@ class PrizesMenus : AppCompatActivity() {
         setupActionBarWithNavController(navController)
 
 
+    }
 
-}
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }

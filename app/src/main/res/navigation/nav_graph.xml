@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/prizeFragment"
         android:name="com.example.vinilos.ui.PrizeFragment"
-        android:label="fragment_prize"
+        android:label="@string/prizes"
         tools:layout="@layout/fragment_prize" />
 </navigation>

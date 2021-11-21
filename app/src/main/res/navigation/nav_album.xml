@@ -9,5 +9,19 @@
         android:id="@+id/albumFragment"
         android:name="com.example.vinilos.ui.AlbumFragment"
         android:label="fragment_album"
-        tools:layout="@layout/fragment_album" />
+        tools:layout="@layout/fragment_album" >
+        <action
+            android:id="@+id/action_albumFragment_to_commentFragment"
+            app:destination="@id/commentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentFragment"
+        android:name="com.example.vinilos.ui.CommentFragment"
+        android:label="fragment_comment"
+        tools:layout="Comentarios" >
+        <argument
+            android:name="albumId"
+            app:argType="integer"
+            android:defaultValue="100" />
+    </fragment>
 </navigation>

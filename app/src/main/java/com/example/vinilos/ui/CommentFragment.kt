@@ -54,7 +54,7 @@ class CommentFragment : Fragment() {
         }
         Log.i("titulo",""+activity.actionBar?.title)
         activity.actionBar?.title = getString(R.string.prizes)
-        //val args: CommentFragmentArgs by navArgs()
+        //val args: CommentFragmentArgs  by navArgs()
         //Log.d("ArgsCommebt", args.albumId.toString())
         viewModel = ViewModelProvider(this, CommentViewModel.Factory(activity.application,100)).get(
             CommentViewModel::class.java)

@@ -50,7 +50,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="@{comment.rating}" />
+                    android:text="@{``+comment.rating}" />
                </LinearLayout>
 
             </LinearLayout>

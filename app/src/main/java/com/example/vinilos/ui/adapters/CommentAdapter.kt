@@ -49,7 +49,7 @@ class CommentAdapter: RecyclerView.Adapter<CommentAdapter.CommentViewHolder>()  
         RecyclerView.ViewHolder(viewDataBinding.root) {
         companion object {
             @LayoutRes
-            val LAYOUT = R.layout.collector_item
+            val LAYOUT = R.layout.comment__item
         }
     }
 

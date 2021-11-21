@@ -6,11 +6,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
 import com.example.vinilos.databinding.AlbumItemBinding
 import com.example.vinilos.models.Album
 import com.squareup.picasso.Picasso
+import com.example.vinilos.ui.AlbumFragmentDirections
+
 
 class AlbumAdapter : RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {
 
@@ -39,10 +42,16 @@ class AlbumAdapter : RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {
             it.album = albums[position]
         }
         holder.viewDataBinding.root.setOnClickListener {
-            // val action = PrizeFragmentDirections.actionAlbumFragmentToCommentFragment(prizes[position].prizeId)
+
             // Navigate using that action
-            //  holder.viewDataBinding.root.findNavController().navigate(action)
+            var id = albums[position].id
+            if(id == null) {
+                id = 100
+            }
             Log.i("Clic en un album","se dio clic en un album"+albums[position].name)
+            val action = AlbumFragmentDirections.actionAlbumFragmentToCommentFragment(id,albums[position].description)
+            holder.viewDataBinding.root.findNavController().navigate(action)
+
         }
     }
 

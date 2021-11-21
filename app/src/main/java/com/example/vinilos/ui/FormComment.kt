@@ -22,6 +22,7 @@ class FormComment : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_comment)
 
+
         val spinnerGender: Spinner = findViewById(R.id.spinner_rating)
         ArrayAdapter.createFromResource(
             this,
@@ -41,7 +42,13 @@ class FormComment : AppCompatActivity() {
         if(comment != null){
             Log.i("FormComment", "Comentario válido")
             Toast.makeText(applicationContext,"Creando comentario...",Toast.LENGTH_LONG).show()
-            commentViewModelClass =  CommentViewModel(this.application,100)
+
+            var id = intent.getStringExtra("idalbum")?.toInt()
+            Log.i("AlbumId", "Id albuim"+id)
+            if(id == null){
+                id=100
+            }
+            commentViewModelClass =  CommentViewModel(this.application,id)
 
             commentViewModelClass.startPostCreate(comment, {
                 Log.i("FormComment", "Comentario válidoCreo comentario $it")

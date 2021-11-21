@@ -1,8 +1,10 @@
 package com.example.vinilos.viewmodels
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.vinilos.models.Comment
+import com.example.vinilos.models.CommentCollector
 import com.example.vinilos.repositories.CommentRepository
 
 class CommentViewModel (application: Application, albumId: Int) :  AndroidViewModel(application){
@@ -10,6 +12,8 @@ class CommentViewModel (application: Application, albumId: Int) :  AndroidViewMo
     private var commentsRepositoryObject = CommentRepository(application)
 
     private val _comments = MutableLiveData<List<Comment>>()
+
+    private var _Loanding = MutableLiveData<Boolean>(false)
 
     val comments: LiveData<List<Comment>>
         get() = _comments
@@ -37,6 +41,29 @@ class CommentViewModel (application: Application, albumId: Int) :  AndroidViewMo
             _isNetworkErrorShown.value = false
         },{
             _eventNetworkError.value = true
+        })
+    }
+
+    //post
+    fun startPostCreate(comment: CommentCollector,
+                        cbViewSuccess: (resp:Boolean) -> Unit,
+                        cbViewError: () -> Unit
+    ) {
+
+        Log.i("CommentViewModel", "Se recibe: rating: ${comment.rating}, comment: ${comment.description} albumId: $id_album collector:${comment.collector.id}")
+        _Loanding.value = true
+
+        commentsRepositoryObject.postCommentAlbum(id_album,comment,{
+            _Loanding.value = false
+            _eventNetworkError.value = false
+            _isNetworkErrorShown.value = false
+            cbViewSuccess(it)
+
+        },{
+            Log.d("Error", it.toString())
+            _eventNetworkError.value = true
+            _Loanding.value = false
+            cbViewError()
         })
     }
 

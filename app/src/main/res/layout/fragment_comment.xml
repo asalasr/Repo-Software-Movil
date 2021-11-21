@@ -5,10 +5,47 @@
     android:layout_height="match_parent"
     tools:context=".ui.CommentFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/fragments_rvcomments"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/comment__item" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titledetailAlbumtext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/description"
+            android:textStyle="bold"
+            android:layout_margin="16dp"/>
+        <TextView
+            android:id="@+id/detailAlbumtext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_margin="16dp"
+            />
+
+        <TextView
+            android:id="@+id/titleComentarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#8BC34A"
+            android:text="@string/comments"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="16dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragments_rvcomments"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            tools:listitem="@layout/comment__item" />
+        <Button
+            android:id="@+id/button_go_create_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/Create_lbl_comment" />
+    </LinearLayout>
 
 </FrameLayout>

@@ -23,5 +23,10 @@
             android:name="albumId"
             app:argType="integer"
             android:defaultValue="100" />
+        <argument
+            android:name="descripcion"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="sin descripcion" />
     </fragment>
 </navigation>

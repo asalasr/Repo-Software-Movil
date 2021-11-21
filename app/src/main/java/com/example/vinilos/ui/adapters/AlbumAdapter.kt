@@ -49,7 +49,7 @@ class AlbumAdapter : RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {
                 id = 100
             }
             Log.i("Clic en un album","se dio clic en un album"+albums[position].name)
-            val action = AlbumFragmentDirections.actionAlbumFragmentToCommentFragment(id)
+            val action = AlbumFragmentDirections.actionAlbumFragmentToCommentFragment(id,albums[position].description)
             holder.viewDataBinding.root.findNavController().navigate(action)
 
         }

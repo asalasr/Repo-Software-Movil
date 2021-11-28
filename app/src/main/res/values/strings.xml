@@ -32,6 +32,11 @@
     <string name="album_spinner_text">Seleccionar</string>
     <string name="comments">Comentarios</string>
     <string name="description">Descripcion</string>
+    <string name="album_lbl_nombreArt">Nombre artista</string>
+    <string name="album_lbl_imagenArt">imagen artista</string>
+    <string name="album_lbl_dateArt">Fecha artista</string>
+    <string name="AlbumsAsociados">Albums Asociados</string>
+    <string name="PremiosAsociados">Premios Asociados</string>
     <string-array name="genre_array">
         <item>Seleccionar</item>
         <item>Classical</item>

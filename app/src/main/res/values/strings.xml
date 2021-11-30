@@ -68,4 +68,6 @@
     <string name="comment_alert_creation_title">Creación comentario</string>
     <string name="commentCreationSuccess">Comentario creado correctamente</string>
     <string name="commentCreationFail">Error creando comentario, Intente de nuevo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

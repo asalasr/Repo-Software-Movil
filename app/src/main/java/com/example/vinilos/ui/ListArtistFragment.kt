@@ -1,60 +1,86 @@
 package com.example.vinilos.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
+import com.example.vinilos.databinding.FragmentAlbumBinding
+import com.example.vinilos.databinding.FragmentArtistBinding
+import com.example.vinilos.databinding.FragmentListArtistBinding
+import com.example.vinilos.models.Album
+import com.example.vinilos.models.Performer
+import com.example.vinilos.ui.adapters.AlbumAdapter
+import com.example.vinilos.ui.adapters.ArtistAdapter
+import com.example.vinilos.viewmodels.AlbumViewModel
+import com.example.vinilos.viewmodels.PerformerViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ListArtistFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ListArtistFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentListArtistBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewModel: PerformerViewModel
+    private var viewModelAdapter: ArtistAdapter? = null
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_artist, container, false)
+
+        _binding = FragmentListArtistBinding.inflate(inflater, container, false)
+        val view = binding.root
+        viewModelAdapter = ArtistAdapter()
+        return view
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        recyclerView = binding.fragmentsRv
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = viewModelAdapter
+
+    }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val activity = requireNotNull(this.activity) {
+            "You can only access the viewModel after onActivityCreated()"
+        }
+        Log.i("titulo", "" + activity.actionBar?.title)
+
+        viewModel = ViewModelProvider(this, PerformerViewModel.Factory(activity.application)).get(
+            PerformerViewModel::class.java
+        )
+        viewModel.performers.observe(viewLifecycleOwner, Observer<List<Performer>> {
+            it.apply {
+                viewModelAdapter!!.performers = this
+            }
+        })
+        viewModel.eventNetworkError.observe(
+            viewLifecycleOwner,
+            Observer<Boolean> { isNetworkError ->
+                if (isNetworkError) onNetworkError()
+            })
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ListArtistFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ListArtistFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
+
+    private fun onNetworkError() {
+        if (!viewModel.isNetworkErrorShown.value!!) {
+            Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+            viewModel.onNetworkErrorShown()
+        }
+    }
+
 }

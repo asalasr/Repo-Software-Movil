@@ -42,4 +42,12 @@ class MainMenu : AppCompatActivity() {
         startActivity(i)
     }
 
+    fun onClickArtist(view: View) {
+        // Do something in response to button click
+        Log.i("VieModelPermormer","llego aca")
+        Log.i("MainMenu", "Click Button Menu to Collectors")
+        val i = Intent(this, ListArtist::class.java)
+        startActivity(i)
+    }
+
 }

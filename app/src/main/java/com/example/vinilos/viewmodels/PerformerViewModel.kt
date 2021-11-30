@@ -1,13 +1,12 @@
 package com.example.vinilos.viewmodels
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.util.Log
+import androidx.lifecycle.*
 import com.example.vinilos.models.Performer
 import com.example.vinilos.repositories.PerformerRepository
 
-class PerformerViewModel (application: Application, artistId: Int) : AndroidViewModel(application) {
+class PerformerViewModel (application: Application) : AndroidViewModel(application) {
 
     private var performerRepositoryObject = PerformerRepository(application)
 
@@ -15,7 +14,7 @@ class PerformerViewModel (application: Application, artistId: Int) : AndroidView
 
     private var _Loanding = MutableLiveData<Boolean>(false)
 
-    val comments: LiveData<List<Performer>>
+    val performers: LiveData<List<Performer>>
         get() = _performers
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
@@ -28,13 +27,14 @@ class PerformerViewModel (application: Application, artistId: Int) : AndroidView
     val isNetworkErrorShown: LiveData<Boolean>
         get() = _isNetworkErrorShown
 
-    val id_artist: Int = artistId
+
 
     init {
         refreshDataFromNetwork()
     }
 
     private fun refreshDataFromNetwork() {
+        Log.i("VieModelPermormer","llego aca en el refres data")
         performerRepositoryObject.refreshData( {
             _performers.postValue(it)
             _eventNetworkError.value = false
@@ -45,5 +45,18 @@ class PerformerViewModel (application: Application, artistId: Int) : AndroidView
 
     }
 
+    //onNetwork
+    fun onNetworkErrorShown() {
+        _isNetworkErrorShown.value = true
+    }
 
+    class Factory(val app: Application) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(PerformerViewModel::class.java)) {
+                @Suppress("UNCHECKED_CAST")
+                return PerformerViewModel(app) as T
+            }
+            throw IllegalArgumentException("Unable to construct viewmodel")
+        }
+    }
 }

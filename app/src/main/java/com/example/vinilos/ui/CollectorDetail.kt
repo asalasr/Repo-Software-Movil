@@ -1,4 +1,4 @@
-package com.example.vinilos
+package com.example.vinilos.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,8 +10,7 @@ import android.widget.TextView
 import com.example.vinilos.models.Collector
 import com.example.vinilos.repositories.AlbumRepository
 import android.widget.ArrayAdapter
-
-
+import com.example.vinilos.R
 
 
 class CollectorDetail : Fragment() {
@@ -59,7 +58,7 @@ class CollectorDetail : Fragment() {
     }
 
     fun setListView(index:Int,albumName:Array<String>){
-        val itemsAdapter: ArrayAdapter<String> = ArrayAdapter(requireContext(),R.layout.test)
+        val itemsAdapter: ArrayAdapter<String> = ArrayAdapter(requireContext(), R.layout.album_item_name)
         for (i in 0 until albumName.size){
             itemsAdapter.add(albumName[i])
         }

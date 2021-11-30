@@ -9,5 +9,17 @@
         android:id="@+id/listArtistFragment"
         android:name="com.example.vinilos.ui.ListArtistFragment"
         android:label="fragment_list_artist"
-        tools:layout="@layout/fragment_list_artist" />
+        tools:layout="@layout/fragment_list_artist" >
+        <action
+            android:id="@+id/action_listArtistFragment_to_artistDetailFragment"
+            app:destination="@id/artistDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/artistDetailFragment"
+        android:name="com.example.vinilos.ui.ArtistDetailFragment"
+        android:label="fragment_artist_detail"
+        tools:layout="@layout/fragment_artist_detail" >
+        <argument android:name="artista"
+            app:argType="com.example.vinilos.models.Performer" />
+    </fragment>
 </navigation>

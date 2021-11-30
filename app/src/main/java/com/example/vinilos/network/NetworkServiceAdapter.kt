@@ -288,7 +288,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                                 image = item.getString("image"),
                                 description = item.getString("description"),
                                 createDate = item.getString("birthDate")
-
+                                
                             )
                         )
                     }

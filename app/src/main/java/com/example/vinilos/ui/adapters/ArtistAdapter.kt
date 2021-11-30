@@ -6,10 +6,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
 import com.example.vinilos.databinding.ArtistItemBinding
 import com.example.vinilos.models.Performer
+import com.example.vinilos.ui.AlbumFragmentDirections
+import com.example.vinilos.ui.ArtistFragment
+import com.example.vinilos.ui.ListArtistFragmentDirections
 import com.squareup.picasso.Picasso
 
 class ArtistAdapter : RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
@@ -46,7 +50,21 @@ class ArtistAdapter : RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
 
             // Navigate using that action
             Log.i("Clic en un artista", "se dio clic en artista: " + performers[position].name)
+            var artista = performers[position]
+            if (artista == null) {
+                artista = Performer(
+                    1,
+                    "juan",
+                    "no image",
+                    "descripcion",
+                    createDate = "123123"
+                )
+            }
 
+            val action = ListArtistFragmentDirections.actionListArtistFragmentToArtistDetailFragment(
+                artista
+            )
+            holder.viewDataBinding.root.findNavController().navigate(action)
         }
     }
 

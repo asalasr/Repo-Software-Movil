@@ -9,5 +9,19 @@
         android:id="@+id/collectorFragment"
         android:name="com.example.vinilos.ui.CollectorFragment"
         android:label="fragment_collector"
-        tools:layout="@layout/fragment_collector" />
+        tools:layout="@layout/fragment_collector" >
+        <action
+            android:id="@+id/action_collectorFragment_to_collectorDetail"
+            app:destination="@id/collectorDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/collectorDetail"
+        android:name="com.example.vinilos.CollectorDetail"
+        android:label="collector_detail_fragment"
+        tools:layout="@layout/collector_detail_fragment" >
+        <argument
+            android:name="collector"
+            app:argType="com.example.vinilos.models.Collector"
+            />
+    </fragment>
 </navigation>

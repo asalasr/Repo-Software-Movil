@@ -6,7 +6,7 @@ import com.android.volley.VolleyError
 import com.example.vinilos.models.Album
 import com.example.vinilos.network.NetworkServiceAdapter
 
-class AlbumRepository(val application: Application) {
+class AlbumRepository(val application: Application?) {
 
     fun postAlbum(
         album: Album,
@@ -14,26 +14,44 @@ class AlbumRepository(val application: Application) {
         cbError: (resp: VolleyError) -> Unit
     ) {
 
-        NetworkServiceAdapter.getInstance(application).postAlbum(album, {
-            Log.i("AlbumRepository", "Album Creado con Exito")
-            cbSuccess(it)
-        }, {
-            Log.i("AlbumRepository", "Error en la creacion")
-            cbError(it)
+        if(application!=null){
+            NetworkServiceAdapter.getInstance(application).postAlbum(album, {
+                Log.i("AlbumRepository", "Album Creado con Exito")
+                cbSuccess(it)
+            }, {
+                Log.i("AlbumRepository", "Error en la creacion")
+                cbError(it)
+            }
+            )
         }
-        )
+
     }
 
     fun getAlbums(cbSuccess: (resp: List<Album>) -> Unit, cbError: (resp: VolleyError) -> Unit) {
-
-        NetworkServiceAdapter.getInstance(application).getAlbums({
-            Log.i("AlbumRepository", "Obtuvo álbums con extio")
-            cbSuccess(it)
-        }, {
-            Log.i("AlbumRepository", "Error en la obtención de álbums")
-            cbError(it)
+        if(application!=null) {
+            NetworkServiceAdapter.getInstance(application).getAlbums({
+                Log.i("AlbumRepository", "Obtuvo álbums con extio")
+                cbSuccess(it)
+            }, {
+                Log.i("AlbumRepository", "Error en la obtención de álbums")
+                cbError(it)
+            }
+            )
         }
-        )
+    }
+    fun getAlbum(albumId:Int,cbSuccess: (resp: Album) -> Unit, cbError: (resp: VolleyError) -> Unit) {
+
+        if (application != null) {
+            NetworkServiceAdapter.getInstance(application).getAlbum(albumId,
+                {
+                    Log.i("AlbumRepository", "Obtuvo ábum con extio")
+                    cbSuccess(it)
+                }, {
+                    Log.i("AlbumRepository", "Error en la obtención de álbum")
+                    cbError(it)
+                }
+            )
+        }
     }
 
 

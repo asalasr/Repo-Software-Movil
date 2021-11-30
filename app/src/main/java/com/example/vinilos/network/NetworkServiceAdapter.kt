@@ -154,11 +154,17 @@ class NetworkServiceAdapter constructor(context: Context) {
                     val list = mutableListOf<Collector>()
                     for (i in 0 until resp.length()) {
                         val item = resp.getJSONObject(i)
+                        val idsAlbum = item.getJSONArray("collectorAlbums")
+                        val albumsIds: MutableList<Int> = ArrayList()
+                        for (j in 0 until idsAlbum.length()) {
+                            albumsIds.add(j,idsAlbum.getJSONObject(j).getString("id").toInt())
+                        }
                         list.add(
                             i, Collector(
                                 name = item.getString("name"),
                                 email = item.getString("email"),
-                                telephone = item.getString("telephone")
+                                telephone = item.getString("telephone"),
+                                albumsIds.toTypedArray()
                             )
 
                         )
@@ -288,21 +294,45 @@ class NetworkServiceAdapter constructor(context: Context) {
                                 image = item.getString("image"),
                                 description = item.getString("description"),
                                 createDate = item.getString("birthDate")
-                                
+
                             )
                         )
                     }
                     onComplete(list)
                 },
                 Response.ErrorListener {
+                    Log.d("Error Performerdetail", it.message.toString())
                     onError(it)
-                    Log.d("Error get Performer", it.message.toString())
                 })
         )
     }
-
-
-
+    fun getAlbum(
+        albumId: Int,
+        onComplete: (resp: Album) -> Unit,
+        onError: (error: VolleyError) -> Unit
+    ) {
+        Log.d("NetworkServices", "obtener álbum "+albumId)
+        requestQueue.add(
+            getRequest("albums/$albumId",
+                { response ->
+                    Log.d("álbum", response)
+                    val item = JSONObject(response)
+                    onComplete( Album(
+                        name = item.getString("name"),
+                        cover = item.getString("cover"),
+                        description = item.getString("description"),
+                        recordLabel = item.getString("recordLabel"),
+                        genre = item.getString("genre"),
+                        releaseDate = SimpleDateFormat("dd-MM-yyyy").parse(item.getString("releaseDate")),
+                        id = item.getString("id")?.toInt()
+                    ))
+                },
+                {
+                    onError(it)
+                    Log.d("Error obteniendo álbum "+albumId, it.message.toString())
+                })
+        )
+    }
 
     private fun getRequest(
         path: String,

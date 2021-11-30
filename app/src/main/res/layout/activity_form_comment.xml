@@ -52,7 +52,7 @@
         <EditText
             android:id="@+id/editTextComment"
             android:layout_width="372dp"
-            android:layout_height="40dp"
+            android:layout_height="120dp"
             android:ems="10"
             android:inputType="text|textMultiLine"
             android:lines="3"

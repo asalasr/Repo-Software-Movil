@@ -35,13 +35,15 @@ class PerformerViewModel (application: Application, artistId: Int) : AndroidView
     }
 
     private fun refreshDataFromNetwork() {
-        performerRepositoryObject.refreshData(id_artist, {
+        performerRepositoryObject.refreshData( {
             _performers.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
         }, {
             _eventNetworkError.value = true
         })
+
     }
+
 
 }

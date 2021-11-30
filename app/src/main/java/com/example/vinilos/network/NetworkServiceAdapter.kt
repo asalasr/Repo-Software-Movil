@@ -109,6 +109,8 @@ class NetworkServiceAdapter constructor(context: Context) {
     }
 
 
+
+
     fun postAlbum(
         album: Album,
         onComplete: (resp: Boolean) -> Unit,
@@ -268,12 +270,11 @@ class NetworkServiceAdapter constructor(context: Context) {
     }
 
     fun getPerformerDetail(
-        artistId: Int,
         onComplete: (resp: List<Performer>) -> Unit,
         onError: (error: VolleyError) -> Unit
     ) {
         requestQueue.add(
-            getRequest("musicians/$artistId",
+            getRequest("musicians",
                 Response.Listener<String> { response ->
                     val resp = JSONArray(response)
                     val list = mutableListOf<Performer>()
@@ -295,7 +296,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                 },
                 Response.ErrorListener {
                     onError(it)
-                    Log.d("Error get Performer detail", it.message.toString())
+                    Log.d("Error get Performer", it.message.toString())
                 })
         )
     }

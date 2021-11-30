@@ -70,4 +70,5 @@
     <string name="commentCreationFail">Error creando comentario, Intente de nuevo</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="max_caracteres">Campo no puede tener más de 500 caracteres</string>
 </resources>

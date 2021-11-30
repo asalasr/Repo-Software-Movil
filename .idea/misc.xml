@@ -24,24 +24,13 @@
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/album_item.xml" value="0.2572463768115942" />
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/card_prize_layout.xml" value="0.16236068895643363" />
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/comment__item.xml" value="0.24864130434782608" />
+        <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/fragment_album.xml" value="0.303125" />
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/fragment_comment.xml" value="0.2572463768115942" />
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/fragment_prize.xml" value="0.16134751773049646" />
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/price_item.xml" value="0.16134751773049646" />
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/prize_item.xml" value="0.16236068895643363" />
-        <entry key="app/src/main/res/layout/activity_form_album.xml" value="0.14311043566362716" />
-        <entry key="app/src/main/res/layout/activity_form_comment.xml" value="0.2056159420289855" />
-        <entry key="app/src/main/res/layout/activity_form_prizes.xml" value="0.12092391304347826" />
-        <entry key="app/src/main/res/layout/activity_list_albums.xml" value="0.14311043566362716" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17481884057971014" />
         <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.17481884057971014" />
-        <entry key="app/src/main/res/layout/album_item.xml" value="0.2942708333333333" />
-        <entry key="app/src/main/res/layout/comment__item.xml" value="0.18020833333333333" />
-        <entry key="app/src/main/res/layout/fragment_album.xml" value="0.24954710144927536" />
-        <entry key="app/src/main/res/layout/fragment_artist.xml" value="0.24954710144927536" />
-        <entry key="app/src/main/res/layout/fragment_collector.xml" value="0.24954710144927536" />
-        <entry key="app/src/main/res/layout/fragment_comment.xml" value="0.18020833333333333" />
-        <entry key="app/src/main/res/layout/fragment_prize.xml" value="0.2942708333333333" />
-        <entry key="app/src/main/res/layout/prize_item.xml" value="0.2942708333333333" />
       </map>
     </option>
   </component>

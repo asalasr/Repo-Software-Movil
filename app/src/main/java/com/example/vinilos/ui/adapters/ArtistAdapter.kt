@@ -11,10 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
 import com.example.vinilos.databinding.ArtistItemBinding
 import com.example.vinilos.models.Performer
-import com.example.vinilos.ui.AlbumFragmentDirections
-import com.example.vinilos.ui.ArtistFragment
 import com.example.vinilos.ui.ListArtistFragmentDirections
 import com.squareup.picasso.Picasso
+import java.util.ArrayList
 
 class ArtistAdapter : RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
 
@@ -51,13 +50,20 @@ class ArtistAdapter : RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
             // Navigate using that action
             Log.i("Clic en un artista", "se dio clic en artista: " + performers[position].name)
             var artista = performers[position]
+            //val albumsIds: Array<Int>(0, 5)
+            //var albumsIds: Array<String> = Array(6) { "" }
+            val albumsIds: MutableList<Int> = ArrayList()
+            val prizesIds: MutableList<Int> = ArrayList()
+
             if (artista == null) {
                 artista = Performer(
                     1,
                     "juan",
                     "no image",
                     "descripcion",
-                    createDate = "123123"
+                    createDate = "123123",
+                    albumsId = albumsIds.toTypedArray(),
+                    prizesId = prizesIds.toTypedArray()
                 )
             }
 

@@ -37,6 +37,7 @@
     <string name="album_lbl_dateArt">Fecha artista</string>
     <string name="AlbumsAsociados">Albums Asociados</string>
     <string name="PremiosAsociados">Premios Asociados</string>
+    <string name="FechaNacimiento">Fecha Nacimiento</string>
     <string-array name="genre_array">
         <item>Seleccionar</item>
         <item>Classical</item>

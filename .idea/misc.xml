@@ -36,11 +36,22 @@
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/price_item.xml" value="0.16134751773049646" />
         <entry key="..\:/miso/desarrollo-movil/Repo-Software-Movil/app/src/main/res/layout/prize_item.xml" value="0.16236068895643363" />
         <entry key="app/src/main/res/layout/activity_form_comment.xml" value="0.1469098277608916" />
+        <entry key="app/src/main/res/layout/activity_form_prizes.xml" value="0.340625" />
         <entry key="app/src/main/res/layout/activity_list_albums.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_list_artist.xml" value="0.2359375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17481884057971014" />
         <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.17481884057971014" />
+        <entry key="app/src/main/res/layout/album_item.xml" value="0.16540020263424518" />
+        <entry key="app/src/main/res/layout/album_item_name.xml" value="0.18931159420289856" />
+        <entry key="app/src/main/res/layout/artist_item.xml" value="0.340625" />
         <entry key="app/src/main/res/layout/collector_detail_fragment.xml" value="0.17028985507246377" />
+        <entry key="app/src/main/res/layout/collector_item.xml" value="0.1526268115942029" />
+        <entry key="app/src/main/res/layout/comment__item.xml" value="0.340625" />
         <entry key="app/src/main/res/layout/fragment_album.xml" value="0.14842958459979735" />
+        <entry key="app/src/main/res/layout/fragment_artist.xml" value="0.16540020263424518" />
+        <entry key="app/src/main/res/layout/fragment_artist_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_collector.xml" value="0.14628623188405798" />
+        <entry key="app/src/main/res/layout/fragment_comment.xml" value="0.14628623188405798" />
         <entry key="app/src/main/res/layout/prize_item.xml" value="0.17028985507246377" />
       </map>
     </option>

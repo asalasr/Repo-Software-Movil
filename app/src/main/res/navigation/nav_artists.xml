@@ -18,8 +18,9 @@
         android:id="@+id/artistDetailFragment"
         android:name="com.example.vinilos.ui.ArtistDetailFragment"
         android:label="fragment_artist_detail"
-        tools:layout="@layout/fragment_artist_detail" >
-        <argument android:name="artista"
+        tools:layout="@layout/fragment_artist_detail">
+        <argument
+            android:name="artista"
             app:argType="com.example.vinilos.models.Performer" />
     </fragment>
 </navigation>

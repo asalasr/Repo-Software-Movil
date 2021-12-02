@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import com.android.volley.VolleyError
 import com.example.vinilos.models.Album
+import com.example.vinilos.models.Prize
 import com.example.vinilos.network.NetworkServiceAdapter
 
 class AlbumRepository(val application: Application?) {
@@ -48,6 +49,21 @@ class AlbumRepository(val application: Application?) {
                     cbSuccess(it)
                 }, {
                     Log.i("AlbumRepository", "Error en la obtención de álbum")
+                    cbError(it)
+                }
+            )
+        }
+    }
+
+    fun getPrize(prizeId:Int, cbSuccess: (resp: Prize) -> Unit, cbError: (resp: VolleyError) -> Unit) {
+
+        if (application != null) {
+            NetworkServiceAdapter.getInstance(application).getPrize(prizeId,
+                {
+                    Log.i("PerformerRepository", "Obtuvo premio con extio")
+                    cbSuccess(it)
+                }, {
+                    Log.i("PerformerRepository", "Error en la obtención de premio")
                     cbError(it)
                 }
             )

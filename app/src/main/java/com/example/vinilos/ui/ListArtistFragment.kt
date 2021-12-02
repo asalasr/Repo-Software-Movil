@@ -32,7 +32,6 @@ class ListArtistFragment : Fragment() {
     private var viewModelAdapter: ArtistAdapter? = null
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,6 +40,7 @@ class ListArtistFragment : Fragment() {
         _binding = FragmentListArtistBinding.inflate(inflater, container, false)
         val view = binding.root
         viewModelAdapter = ArtistAdapter()
+
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -11,15 +11,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.vinilos.R
-import com.example.vinilos.databinding.FragmentAlbumBinding
-import com.example.vinilos.databinding.FragmentArtistBinding
 import com.example.vinilos.databinding.FragmentListArtistBinding
-import com.example.vinilos.models.Album
 import com.example.vinilos.models.Performer
-import com.example.vinilos.ui.adapters.AlbumAdapter
 import com.example.vinilos.ui.adapters.ArtistAdapter
-import com.example.vinilos.viewmodels.AlbumViewModel
 import com.example.vinilos.viewmodels.PerformerViewModel
 
 

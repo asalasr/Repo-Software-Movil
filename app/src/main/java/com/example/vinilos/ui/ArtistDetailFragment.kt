@@ -66,22 +66,7 @@ class ArtistDetailFragment : Fragment() {
             }, {
 
             })
-
         }
-
-       /* val prizesIds: MutableList<String> = ArrayList()
-        albumRepositoryObject = AlbumRepository(activity?.application)
-        for (i in 0 until args.artista.prizesId.size){
-            albumRepositoryObject.getPrize( args.artista.prizesId[i],{
-                prizesIds.add(i,it.name)
-                if(i.equals(args.artista.prizesId.size-1))
-                    setListPrizeView(i,prizesIds.toTypedArray())
-            }, {
-
-            })
-
-        }*/
-
     }
 
     fun setListAlbumView(index:Int,albumName:Array<String>){
@@ -94,15 +79,6 @@ class ArtistDetailFragment : Fragment() {
 
     }
 
-    /*fun setListPrizeView(index:Int,prizeName:Array<String>){
-        val itemsAdapter: ArrayAdapter<String> = ArrayAdapter(requireContext(), R.layout.prize_item)
-        for (i in 0 until prizeName.size){
-            itemsAdapter.add(prizeName[i])
-        }
-        val listView: ListView = view?.findViewById(R.id.listaPrize) as ListView
-        listView.adapter=itemsAdapter
-
-    }*/
 
 }
 

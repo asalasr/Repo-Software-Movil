@@ -34,7 +34,7 @@ class PerformerViewModel (application: Application) : AndroidViewModel(applicati
     }
 
     private fun refreshDataFromNetwork() {
-        Log.i("VieModelPermormer","llego aca en el refres data")
+
         performerRepositoryObject.refreshData( {
             _performers.postValue(it)
             _eventNetworkError.value = false

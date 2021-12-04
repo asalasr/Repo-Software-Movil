@@ -26,7 +26,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:hint="@string/album_lbl_imagenArt"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:contentDescription="ImagenArtista" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

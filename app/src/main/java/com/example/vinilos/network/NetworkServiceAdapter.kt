@@ -370,7 +370,6 @@ class NetworkServiceAdapter constructor(context: Context) {
                 },
                 {
                     onError(it)
-                    Log.d("Error obteniendo premio "+prizeId, it.message.toString())
                 })
         )
     }

@@ -2,7 +2,6 @@ package com.example.vinilos.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.example.vinilos.R
 
 class ListArtist : AppCompatActivity() {

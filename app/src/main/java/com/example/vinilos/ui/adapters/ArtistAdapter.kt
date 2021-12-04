@@ -28,7 +28,6 @@ class ArtistAdapter : RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
         parent: ViewGroup,
         viewType: Int
     ): ArtistViewHolder {
-        Log.i("VieModelPermormer","llego aca super bien")
         val withDataBinding: ArtistItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             ArtistViewHolder.LAYOUT,
@@ -48,10 +47,7 @@ class ArtistAdapter : RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
         holder.viewDataBinding.root.setOnClickListener {
 
             // Navigate using that action
-            Log.i("Clic en un artista", "se dio clic en artista: " + performers[position].name)
             var artista = performers[position]
-            //val albumsIds: Array<Int>(0, 5)
-            //var albumsIds: Array<String> = Array(6) { "" }
             val albumsIds: MutableList<Int> = ArrayList()
             val prizesIds: MutableList<Int> = ArrayList()
 

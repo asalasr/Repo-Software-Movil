@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ArtistFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp">
+
+            <LinearLayout
+                android:layout_width="408dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:hint="@string/album_lbl_imagenArt"
+                    android:contentDescription="ImagenArtista" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <TextView
+            android:id="@+id/nameArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:hint=""
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/descriptionArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black"
+            android:inputType="text|textMultiLine"
+            android:hint="@string/description"
+            android:lines="3"
+            android:maxLength="500"
+            android:padding="16dp" />
+        <TextView
+            android:id="@+id/createArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:hint="@string/album_lbl_dateArt"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/albumsArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AlbumsAsociados"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragments_rvalbums"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            tools:listitem="@layout/album_item" />
+
+        <TextView
+            android:id="@+id/prizesArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/PremiosAsociados"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragments_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/prize_item" />
+
+    </LinearLayout>
+
+</FrameLayout>

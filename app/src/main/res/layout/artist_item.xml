@@ -4,16 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
-            name="album"
-            type="com.example.vinilos.models.Album" />
+            name="artist"
+            type="com.example.vinilos.models.Performer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,13 +33,13 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     tools:srcCompat="@tools:sample/avatars"
-                    android:contentDescription="ImagenAlbum" />
+                    android:contentDescription="ImagenArtista" />
 
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{album.name}"
+                    android:text="@{artist.name}"
                     android:textStyle="bold"
                     android:translationY="75dp" />
 

@@ -109,6 +109,8 @@ class NetworkServiceAdapter constructor(context: Context) {
     }
 
 
+
+
     fun postAlbum(
         album: Album,
         onComplete: (resp: Boolean) -> Unit,
@@ -152,11 +154,17 @@ class NetworkServiceAdapter constructor(context: Context) {
                     val list = mutableListOf<Collector>()
                     for (i in 0 until resp.length()) {
                         val item = resp.getJSONObject(i)
+                        val idsAlbum = item.getJSONArray("collectorAlbums")
+                        val albumsIds: MutableList<Int> = ArrayList()
+                        for (j in 0 until idsAlbum.length()) {
+                            albumsIds.add(j,idsAlbum.getJSONObject(j).getString("id").toInt())
+                        }
                         list.add(
                             i, Collector(
                                 name = item.getString("name"),
                                 email = item.getString("email"),
-                                telephone = item.getString("telephone")
+                                telephone = item.getString("telephone"),
+                                albumsIds.toTypedArray()
                             )
 
                         )
@@ -263,6 +271,105 @@ class NetworkServiceAdapter constructor(context: Context) {
                 {
                     onError(it)
                     Log.d("Error get Prizes", it.message.toString())
+                })
+        )
+    }
+
+    fun getPerformerDetail(
+        onComplete: (resp: List<Performer>) -> Unit,
+        onError: (error: VolleyError) -> Unit
+    ) {
+        requestQueue.add(
+            getRequest("musicians",
+                Response.Listener<String> { response ->
+                    val resp = JSONArray(response)
+                    val list = mutableListOf<Performer>()
+
+
+
+                    for (i in 0 until resp.length()) {
+                        val item = resp.getJSONObject(i)
+
+                        val idsAlbum = item.getJSONArray("albums")
+                        val albumsIds: MutableList<Int> = ArrayList()
+                        for (j in 0 until idsAlbum.length()) {
+                            albumsIds.add(j,idsAlbum.getJSONObject(j).getString("id").toInt())
+                        }
+
+                        val idsPrizes = item.getJSONArray("performerPrizes")
+                        val prizesIds: MutableList<Int> = ArrayList()
+                        for (j in 0 until idsPrizes.length()) {
+                            prizesIds.add(j,idsPrizes.getJSONObject(j).getString("id").toInt())
+                        }
+
+                        list.add(
+                            i, Performer(
+                                id = item.getInt("id"),
+                                name = item.getString("name"),
+                                image = item.getString("image"),
+                                description = item.getString("description"),
+                                createDate = item.getString("birthDate"),
+                                albumsIds.toTypedArray(),
+                                prizesIds.toTypedArray()
+                            )
+                        )
+                    }
+                    onComplete(list)
+                },
+                Response.ErrorListener {
+                    Log.d("Error Performerdetail", it.message.toString())
+                    onError(it)
+                })
+        )
+    }
+    fun getAlbum(
+        albumId: Int,
+        onComplete: (resp: Album) -> Unit,
+        onError: (error: VolleyError) -> Unit
+    ) {
+        Log.d("NetworkServices", "obtener álbum "+albumId)
+        requestQueue.add(
+            getRequest("albums/$albumId",
+                { response ->
+                    Log.d("álbum", response)
+                    val item = JSONObject(response)
+                    onComplete( Album(
+                        name = item.getString("name"),
+                        cover = item.getString("cover"),
+                        description = item.getString("description"),
+                        recordLabel = item.getString("recordLabel"),
+                        genre = item.getString("genre"),
+                        releaseDate = SimpleDateFormat("dd-MM-yyyy").parse(item.getString("releaseDate")),
+                        id = item.getString("id")?.toInt()
+                    ))
+                },
+                {
+                    onError(it)
+                    Log.d("Error obteniendo álbum "+albumId, it.message.toString())
+                })
+        )
+    }
+
+    fun getPrize(
+        prizeId: Int,
+        onComplete: (resp: Prize) -> Unit,
+        onError: (error: VolleyError) -> Unit
+    ) {
+        Log.d("NetworkServices", "obtener premio "+prizeId)
+        requestQueue.add(
+            getRequest("prizes/$prizeId",
+                { response ->
+                    Log.d("premio", response)
+                    val item = JSONObject(response)
+                    onComplete( Prize(
+                        id = item.getInt("id"),
+                        name = item.getString("name"),
+                        organitation = item.getString("organization"),
+                        description = item.getString("description")
+                    ))
+                },
+                {
+                    onError(it)
                 })
         )
     }

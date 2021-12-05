@@ -13,12 +13,14 @@
     <string name="Cancel">CANCELAR</string>
     <string name="Create_lbl_Premio">Crear Premio</string>
     <string name="prize_lbl_organization">Organización</string>
+    <string name="prize_hint_organization">Escriba la organización</string>
     <string name="prize_lbl_nombre">Nombre del premio</string>
+    <string name="prize_hint_nombre">Escriba un nombre</string>
     <string name="prize_lbl_descripcion">Descripción del premio</string>
+    <string name="prize_hint_descripcion">Escriba una descripcion</string>
     <string name="campo_obligatorio">Campo obligatorio</string>
     <string name="almacenadoOkPremio">El Premio se ha almacenado con exito</string>
     <string name="almacenadoError">Error, Intente de nuevo</string>
-    <string name="dialogTitle">Notificación</string>
     <string name="Create_lbl_Album">Crear álbum</string>
     <string name="album_lbl_nombre">Nombre</string>
     <string name="album_lbl_cover">Cover</string>
@@ -31,7 +33,13 @@
     <string name="album_alert_creation_title">Creación álbum</string>
     <string name="album_spinner_text">Seleccionar</string>
     <string name="comments">Comentarios</string>
+    <string name="comment_hint_descripcion">Escriba su comentario</string>
     <string name="description">Descripcion</string>
+    <string name="album_lbl_imagenArt">imagen artista</string>
+    <string name="album_lbl_dateArt">Fecha artista</string>
+    <string name="AlbumsAsociados">Albums Asociados</string>
+    <string name="PremiosAsociados">Premios Asociados</string>
+    <string name="FechaNacimiento">Fecha Nacimiento</string>
     <string-array name="genre_array">
         <item>Seleccionar</item>
         <item>Classical</item>
@@ -63,4 +71,6 @@
     <string name="comment_alert_creation_title">Creación comentario</string>
     <string name="commentCreationSuccess">Comentario creado correctamente</string>
     <string name="commentCreationFail">Error creando comentario, Intente de nuevo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="max_caracteres">Campo no puede tener más de 500 caracteres</string>
 </resources>

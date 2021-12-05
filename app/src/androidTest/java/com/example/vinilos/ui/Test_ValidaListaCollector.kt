@@ -35,14 +35,14 @@ import org.hamcrest.Matchers.`is`
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class Test_crearPremio {
+class Test_ValidaListaCollector {
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun test_crearPremio() {
+    fun test_ValidaListaCollector() {
         val materialButton = onView(
 allOf(withId(R.id.button_collector_rol), withText("COLECCIONISTA"),
 childAtPosition(
@@ -58,93 +58,25 @@ withClassName(`is`("android.widget.ScrollView")),
 Thread.sleep(700)
         
         val materialButton2 = onView(
-allOf(withId(R.id.button_prizes_menu), withText("PREMIOS"),
+allOf(withId(R.id.button_collectors_menu), withText("COLECCIONISTAS"),
 childAtPosition(
 childAtPosition(
 withClassName(`is`("android.widget.RelativeLayout")),
 0),
-1),
+0),
 isDisplayed()))
         materialButton2.perform(click())
         
          // Added a sleep statement to match the app's execution delay.
  // The recommended way to handle such scenarios is to use Espresso idling resources:
   // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
-Thread.sleep(700)
+Thread.sleep(5000)
         
-        val floatingActionButton = onView(
-allOf(withId(R.id.fab_prizes), withContentDescription("Crear Premio"),
-childAtPosition(
-childAtPosition(
-withId(android.R.id.content),
-0),
-1),
+        val textView = onView(
+allOf(withId(R.id.textView1), withText("Manolo Bellon"),
+withParent(withParent(IsInstanceOf.instanceOf(androidx.cardview.widget.CardView::class.java))),
 isDisplayed()))
-        floatingActionButton.perform(click())
-        
-         // Added a sleep statement to match the app's execution delay.
- // The recommended way to handle such scenarios is to use Espresso idling resources:
-  // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
-Thread.sleep(700)
-        
-        val appCompatEditText = onView(
-allOf(withId(R.id.editTextTextOrganizacion),
-childAtPosition(
-childAtPosition(
-withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
-0),
-2),
-isDisplayed()))
-        appCompatEditText.perform(replaceText("prueba"), closeSoftKeyboard())
-        
-        val appCompatEditText2 = onView(
-allOf(withId(R.id.editTextTextNombre),
-childAtPosition(
-childAtPosition(
-withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
-0),
-4),
-isDisplayed()))
-        appCompatEditText2.perform(replaceText("nombreprueba"), closeSoftKeyboard())
-        
-        val appCompatEditText3 = onView(
-allOf(withId(R.id.editTextTextDescripcion),
-childAtPosition(
-childAtPosition(
-withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
-0),
-6),
-isDisplayed()))
-        appCompatEditText3.perform(replaceText("descripcion de prueba"), closeSoftKeyboard())
-        
-        val materialButton3 = onView(
-allOf(withId(R.id.button_create_prize), withText("CREAR"),
-childAtPosition(
-childAtPosition(
-withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
-0),
-7),
-isDisplayed()))
-        materialButton3.perform(click())
-        
-        val materialButton4 = onView(
-allOf(withId(android.R.id.button1), withText("OK"),
-childAtPosition(
-childAtPosition(
-withId(R.id.buttonPanel),
-0),
-3)))
-        materialButton4.perform(scrollTo(), click())
-        
-        val appCompatEditText4 = onView(
-allOf(withId(R.id.editTextTextDescripcion),
-childAtPosition(
-childAtPosition(
-withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
-0),
-6),
-isDisplayed()))
-        appCompatEditText4.perform(click())
+        textView.check(matches(withText("Manolo Bellon")))
         }
     
     private fun childAtPosition(

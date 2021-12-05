@@ -99,9 +99,16 @@ class FormComment : AppCompatActivity() {
 
         var commentObj: CommentCollector? = null
 
+        var error = false
+
         if (comment.text.toString().trim().isEmpty()) {
             comment.setError(getString(R.string.campo_obligatorio))
             comment.requestFocus()
+            error = true
+        }else if (comment.text.toString().length >=500){
+            comment.setError(getString(R.string.max_caracteres))
+            comment.requestFocus()
+            error = true
         }
 
         if (rating.selectedItem.toString().equals(getString(R.string.comment_spinner_text))) {
@@ -109,7 +116,10 @@ class FormComment : AppCompatActivity() {
             spinnerError.setError("");
             spinnerError.setTextColor(Color.RED);
             spinnerError.setText(getString(R.string.campo_obligatorio));
-        } else {
+            error = true
+        }
+
+        if (!error){
             commentObj = CommentCollector(
                 rating.selectedItem.toString().toInt(), comment.text.toString(),
                 CollectorComment(100)

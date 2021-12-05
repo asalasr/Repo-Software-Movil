@@ -11,7 +11,8 @@
         android:orientation="vertical"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingBottom="16dp">
+        android:paddingBottom="16dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textViewCreateCommentTitle"
@@ -37,7 +38,7 @@
         <Spinner
             android:id="@+id/spinner_rating"
             android:layout_width="371dp"
-            android:layout_height="41dp" />
+            android:layout_height="48dp" />
 
 
         <TextView
@@ -52,13 +53,16 @@
         <EditText
             android:id="@+id/editTextComment"
             android:layout_width="372dp"
-            android:layout_height="40dp"
+            android:layout_height="120dp"
             android:ems="10"
             android:inputType="text|textMultiLine"
             android:lines="3"
+            android:hint="@string/comment_hint_descripcion"
             android:text=""
             tools:layout_editor_absoluteX="17dp"
-            tools:layout_editor_absoluteY="202dp" />
+            tools:layout_editor_absoluteY="202dp"
+            android:autofillHints=""
+            tools:ignore="LabelFor" />
 
 
         <Button

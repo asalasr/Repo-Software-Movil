@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.PrizesMenus">
-
-
+    tools:context=".ui.ListArtist">
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -14,18 +12,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="64dp"
         app:defaultNavHost="true"
-        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
-        app:navGraph="@navigation/nav_graph"
+        app:layout_constraintTop_toBottomOf="@+id/my_artist_fragments"
+        app:navGraph="@navigation/nav_artists"
         tools:layout_editor_absoluteX="0dp" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_prizes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/Create_lbl_Premio"
-        android:onClick="onClickFlapPrizes"
-        android:src="@drawable/ic_baseline_add_24"
-        app:backgroundTint="#387BFF" />
 </FrameLayout>

@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.scrollTo
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
@@ -19,21 +18,20 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
-import org.hamcrest.core.IsInstanceOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class Test_ValidaListaCollectors {
+class Test_DetallesArtista {
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun test_ValidaListaCollectors() {
+    fun test_DetallesArtista3() {
         val materialButton = onView(
             allOf(
                 withId(R.id.button_collector_rol), withText("COLECCIONISTA"),
@@ -48,24 +46,34 @@ class Test_ValidaListaCollectors {
         )
         materialButton.perform(scrollTo(), click())
 
+        // Added a sleep statement to match the app's execution delay.
+        // The recommended way to handle such scenarios is to use Espresso idling resources:
+        // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
+        Thread.sleep(700)
+
         val materialButton2 = onView(
             allOf(
-                withId(R.id.button_collectors_menu), withText("COLECCIONISTAS"),
+                withId(R.id.button_artists_menu), withText("ARTISTAS"),
                 childAtPosition(
                     childAtPosition(
                         withClassName(`is`("android.widget.RelativeLayout")),
                         0
                     ),
-                    0
+                    3
                 ),
                 isDisplayed()
             )
         )
         materialButton2.perform(click())
-        Thread.sleep(5000)
+
+        // Added a sleep statement to match the app's execution delay.
+        // The recommended way to handle such scenarios is to use Espresso idling resources:
+        // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
+        Thread.sleep(700)
+
         val recyclerView = onView(
             allOf(
-                withId(R.id.fragments_rvcollector),
+                withId(R.id.fragments_rv),
                 childAtPosition(
                     withClassName(`is`("android.widget.FrameLayout")),
                     0
@@ -73,26 +81,6 @@ class Test_ValidaListaCollectors {
             )
         )
         recyclerView.perform(actionOnItemAtPosition<ViewHolder>(0, click()))
-        Thread.sleep(5000)
-        val recyclerView2 = onView(
-            allOf(
-                withId(R.id.fragments_rvcollector),
-                childAtPosition(
-                    withClassName(`is`("android.widget.FrameLayout")),
-                    0
-                )
-            )
-        )
-        recyclerView2.perform(actionOnItemAtPosition<ViewHolder>(0, click()))
-
-        val textView = onView(
-            allOf(
-                withId(R.id.textView1), withText("Manolo Bellon"),
-                withParent(withParent(IsInstanceOf.instanceOf(androidx.cardview.widget.CardView::class.java))),
-                isDisplayed()
-            )
-        )
-        textView.check(matches(withText("Manolo Bellon")))
     }
 
     private fun childAtPosition(

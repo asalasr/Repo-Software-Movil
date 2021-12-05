@@ -84,21 +84,6 @@
             android:layout_height="250dp"
             android:scrollbarAlwaysDrawVerticalTrack="true" />
 
-        <TextView
-            android:id="@+id/PreziesArtist"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#F0F0F0"
-            android:hint="@string/PremiosAsociados"
-            android:padding="16dp"
-            android:text="@string/PremiosAsociados"
-            android:textStyle="bold" />
-
-        <ListView
-            android:id="@+id/listaPrize"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:scrollbarAlwaysDrawVerticalTrack="true" />
 
 
 

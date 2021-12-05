@@ -38,10 +38,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/prize_hint_organization"
             android:inputType="textPersonName"
             android:maxLength="100"
             android:text=""
-            android:hint="@string/prize_lbl_organization" />
+            android:textColorHint="#6E6E6E" />
 
         <TextView
             android:id="@+id/textViewNombre"
@@ -55,16 +56,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/prize_hint_nombre"
             android:inputType="textPersonName"
             android:maxLength="100"
             android:text=""
-            android:hint="@string/prize_lbl_nombre" />
+            android:textColorHint="#6E6E6E" />
 
         <TextView
             android:id="@+id/textViewDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/prize_lbl_descripcion"
+            android:text="@string/prize_hint_descripcion"
             android:textStyle="bold" />
 
         <EditText
@@ -72,11 +74,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/prize_lbl_descripcion"
             android:inputType="text|textMultiLine"
             android:lines="3"
             android:maxLength="500"
             android:text=""
-            android:hint="@string/prize_lbl_descripcion" />
+            android:textColorHint="#6E6E6E" />
 
         <Button
             android:id="@+id/button_create_prize"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,15 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/album_item" />
-    
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_albums"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
+        android:contentDescription="@string/Create_lbl_Album"
         android:onClick="onClickFlapAlbums"
         android:src="@drawable/ic_baseline_add_24"
-        android:contentDescription="@string/Create_lbl_Album" />
+        app:backgroundTint="#387BFF" />
 
 </FrameLayout>

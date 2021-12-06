@@ -14,8 +14,7 @@ import androidx.test.runner.AndroidJUnit4
 import com.example.vinilos.R
 import org.hamcrest.Description
 import org.hamcrest.Matcher
-import org.hamcrest.Matchers.`is`
-import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.*
 import org.hamcrest.TypeSafeMatcher
 import org.hamcrest.core.IsInstanceOf
 import org.junit.Rule
@@ -69,16 +68,16 @@ class Test_ListarArtistas {
         // Added a sleep statement to match the app's execution delay.
         // The recommended way to handle such scenarios is to use Espresso idling resources:
         // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
-        Thread.sleep(700)
+        Thread.sleep(2500)
 
         val textView = onView(
             allOf(
-                withId(R.id.textView1), withText("Rub�n Blades Bellido de Luna"),
+                withId(R.id.textView1), withText(endsWith("Luna")),
                 withParent(withParent(IsInstanceOf.instanceOf(androidx.cardview.widget.CardView::class.java))),
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("Rub�n Blades Bellido de Luna")))
+        textView.check(matches(withText(endsWith("Luna"))))
     }
 
     private fun childAtPosition(

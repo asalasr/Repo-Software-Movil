@@ -30,8 +30,6 @@ class NetworkServiceAdapter constructor(context: Context) {
         // applicationContext keeps you from leaking the Activity or BroadcastReceiver if someone passes one in.
         Volley.newRequestQueue(context.applicationContext)
     }
-
-
     /*fun getOneAlbum(albumId:Int, onComplete:(resp: Album)->Unit, onError: (error:VolleyError)->Unit) {
         requestQueue.add(getRequest("albums/$albumId",
             Response.Listener<String> { response ->

@@ -18,7 +18,6 @@ import androidx.annotation.NonNull;
 
 public class AlbumAdapterTest extends ArrayAdapter<Album> {
 
-
     public AlbumAdapterTest( Context context, int resource, @NonNull List<Album> objects) {
         super(context, resource, objects);
     }
